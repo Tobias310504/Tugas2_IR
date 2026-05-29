@@ -1,0 +1,10 @@
+Q1|probabilistic retrieval binary independence two poisson model
+Q2|bm25 ranking term frequency document length normalization
+Q3|inverted index preprocessing tokenization stopword stemming posting list
+Q4|search evaluation relevance judgment precision recall mean average precision
+Q5|web search crawler indexing pagerank ranking algorithm
+Q6|semantic neural dense sparse hybrid retrieval search
+Q7|query processing expansion feedback user intent information need
+Q8|duplicate detection document similarity shingling minhash locality sensitive hashing
+Q9|language model retrieval smoothing collection frequency probability
+Q10|index compression query latency throughput caching scalable indexing

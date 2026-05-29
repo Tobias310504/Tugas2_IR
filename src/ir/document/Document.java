@@ -3,23 +3,25 @@ package ir.document;
 public class Document {
 
     private String id;
+    private String title;
     private String content;
-
-    public Document(String id, String content) {
+    //konstruktornya
+    public Document(String id, String title, String content) {
         // Menyimpan ID dokumen dan isi dokumen.
-        //
-        // Contoh:
-        // id      = "DOC1"
-        // content = isi baris pertama dari documents.txt
+        this.id = id;
+        this.title = title;
+        this.content = content;
     }
 
     public String getId() {
-        // Mengembalikan ID dokumen.
-        return null;
+        return id;
     }
 
     public String getContent() {
-        // Mengembalikan isi dokumen mentah.
-        return null;
+        return content;
+    }
+
+    public String getTitle() {
+        return title;
     }
 }

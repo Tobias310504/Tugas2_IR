@@ -1,0 +1,200 @@
+1|Information Retrieval|Information retrieval is the process of finding relevant documents from a large collection. Search engines use indexing techniques to make retrieval faster and more accurate.
+2|Computer Science|Computer science is the study of algorithms, data structures, programming languages, and computational systems. It helps people solve problems using logical and systematic methods.
+3|Digital Library|A digital library stores books, journals, articles, and research papers in electronic format. Users can search the collection using keywords and retrieve relevant information.
+4|Machine Learning|Machine learning allows computer systems to learn patterns from data. It is widely used in recommendation systems, image recognition, fraud detection, and natural language processing.
+5|Database System|A database system stores and manages structured data. Users can insert, update, delete, and retrieve information using query languages.
+6|Search Engine|A search engine helps users find information on the internet. It uses crawling, indexing, and ranking methods to return relevant web pages.
+7|Cybersecurity|Cybersecurity protects computer systems, networks, and data from digital attacks. It includes encryption, authentication, malware detection, and access control.
+8|Cloud Computing|Cloud computing provides computing resources such as storage, servers, and applications through the internet. Companies use cloud services to reduce infrastructure costs.
+9|Software Engineering|Software engineering focuses on designing, developing, testing, and maintaining software systems. It uses structured methods to build reliable and scalable applications.
+10|Data Mining|Data mining is the process of discovering useful patterns from large datasets. It is often used in business analytics, customer behavior analysis, and decision support systems.
+11|Natural Language Processing|Natural language processing helps computers understand and process human language. It is used in chatbots, machine translation, sentiment analysis, and text classification.
+12|Computer Networks|Computer networks allow devices to communicate and exchange data. Network protocols define how information is transmitted between computers and servers.
+13|Operating System|An operating system manages hardware resources and provides services for software applications. It controls memory, processes, files, and input output devices.
+14|Web Development|Web development is the process of creating websites and web applications. It involves frontend design, backend programming, databases, and server deployment.
+15|Mobile Application|Mobile applications are software programs designed to run on smartphones and tablets. They are used for communication, education, banking, entertainment, and productivity.
+16|Artificial Intelligence|Artificial intelligence enables machines to perform tasks that normally require human intelligence. These tasks include reasoning, learning, planning, and problem solving.
+17|Data Visualization|Data visualization presents data in graphical forms such as charts, maps, and dashboards. It helps users understand trends, patterns, and comparisons more easily.
+18|Information System|An information system combines people, processes, data, and technology to support organizational activities. It helps businesses manage operations and make decisions.
+19|Robotics|Robotics combines mechanical engineering, electronics, and computer science to build intelligent machines. Robots can perform tasks in manufacturing, healthcare, logistics, and exploration.
+20|Human Computer Interaction|Human computer interaction studies how people interact with digital systems. Good interface design improves usability, accessibility, and user satisfaction.
+21|Algorithm Design|Algorithm design focuses on creating step by step procedures to solve computational problems. Efficient algorithms can reduce processing time and memory usage.
+22|Distributed System|A distributed system consists of multiple computers that work together as a single system. It improves scalability, reliability, and resource sharing.
+23|Big Data|Big data refers to extremely large and complex datasets that are difficult to process using traditional tools. It requires special methods for storage, processing, and analysis.
+24|Blockchain Technology|Blockchain technology stores data in a distributed and tamper resistant ledger. It is commonly used in cryptocurrency, digital identity, and secure transaction systems.
+25|Internet of Things|The internet of things connects physical devices to the internet so they can collect and exchange data. Smart sensors are used in homes, factories, cities, and transportation systems.
+26|Data Privacy|Data privacy focuses on protecting personal information from unauthorized access and misuse. Organizations must handle user data responsibly and follow security regulations.
+27|Computer Vision|Computer vision allows computers to analyze and understand images or videos. It is used in facial recognition, medical imaging, autonomous vehicles, and quality inspection.
+28|Recommendation System|A recommendation system suggests products, movies, music, or content based on user preferences. It often uses user behavior data and machine learning techniques.
+29|Educational Technology|Educational technology uses digital tools to support teaching and learning activities. Online learning platforms help students access materials, quizzes, and virtual classrooms.
+30|Bioinformatics|Bioinformatics applies computer science to analyze biological data. It is used in genomics, drug discovery, protein analysis, and medical research.
+31|Electronic Commerce|Electronic commerce allows people to buy and sell goods or services through online platforms. It relies on payment systems, product catalogs, user reviews, and secure transactions.
+32|Social Media Analytics|Social media analytics examines data from online platforms to understand public opinion and user behavior. It can be used for marketing, trend detection, and sentiment analysis.
+33|Knowledge Graph|A knowledge graph represents entities and their relationships in a structured form. It helps search engines and intelligent systems understand connections between concepts.
+34|Text Mining|Text mining extracts useful information from unstructured text documents. It can identify keywords, topics, opinions, and relationships in large document collections.
+35|Enterprise System|An enterprise system supports business processes across departments such as finance, sales, inventory, and human resources. It helps organizations integrate data and improve efficiency.
+36|Data Warehouse|A data warehouse stores historical data from multiple sources for analysis and reporting. It supports business intelligence, dashboards, and decision making.
+37|User Experience Design|User experience design focuses on creating products that are useful, usable, and enjoyable. Designers study user needs, workflows, and interface behavior.
+38|Application Programming Interface|An application programming interface allows different software systems to communicate with each other. APIs are commonly used to connect web services, mobile applications, and databases.
+39|Parallel Computing|Parallel computing divides a large computational task into smaller parts that run at the same time. It can improve performance for simulations, data processing, and scientific computing.
+40|Smart City|A smart city uses digital technology and data to improve urban services. Smart traffic systems, public safety platforms, and energy monitoring can make cities more efficient.
+41|Network Security|Network security protects computer networks from unauthorized access, attacks, and data theft. Firewalls, intrusion detection systems, and encryption are common protection methods.
+42|Quantum Computing|Quantum computing uses principles of quantum mechanics to process information. It has potential applications in cryptography, optimization, material science, and complex simulations.
+43|Game Development|Game development is the process of designing and building digital games. It includes programming, graphics, physics, sound design, storytelling, and user interaction.
+44|Virtual Reality|Virtual reality creates immersive digital environments that users can experience through special devices. It is used in gaming, training, education, and medical simulation.
+45|Augmented Reality|Augmented reality adds digital information to the real world through cameras or smart glasses. It can support navigation, education, industrial maintenance, and interactive marketing.
+46|DevOps|DevOps combines software development and IT operations to improve delivery speed and system reliability. It uses automation, continuous integration, testing, and monitoring.
+47|Software Testing|Software testing checks whether a program works correctly and meets user requirements. Testing can include unit testing, integration testing, system testing, and acceptance testing.
+48|Edge Computing|Edge computing processes data near the source instead of sending everything to a central cloud server. It reduces latency and supports real time applications such as smart cameras and autonomous vehicles.
+49|Digital Forensics|Digital forensics investigates data from computers, mobile devices, and networks to find evidence of cyber incidents. It is used in law enforcement, fraud investigation, and incident response.
+50|Green Computing|Green computing focuses on designing and using computer systems in an environmentally responsible way. It aims to reduce energy consumption, electronic waste, and carbon emissions.
+51|Computer Architecture|Computer architecture describes the design and organization of computer hardware components. It explains how processors, memory, buses, and input output systems work together to execute instructions.
+52|Compiler Design|Compiler design studies how programming languages are translated into machine code. A compiler usually performs lexical analysis, syntax analysis, semantic analysis, optimization, and code generation.
+53|Information Security|Information security protects data from unauthorized access, modification, disclosure, and destruction. It includes confidentiality, integrity, availability, authentication, and risk management.
+54|Cryptography|Cryptography is the science of securing information using mathematical techniques. It is used to protect messages, passwords, digital signatures, and secure online transactions.
+55|Data Compression|Data compression reduces the size of files or data streams. It can improve storage efficiency and reduce transmission time across computer networks.
+56|Multimedia System|A multimedia system manages different types of media such as text, audio, images, animation, and video. It is commonly used in education, entertainment, advertising, and digital communication.
+57|Geographic Information System|A geographic information system collects, stores, analyzes, and visualizes spatial data. It is useful for mapping, urban planning, transportation analysis, and environmental monitoring.
+58|Decision Support System|A decision support system helps users analyze data and evaluate alternatives. It supports managers in making structured and semi structured decisions.
+59|Expert System|An expert system uses knowledge and rules to solve problems in a specific domain. It can support diagnosis, recommendation, planning, and troubleshooting tasks.
+60|Pattern Recognition|Pattern recognition identifies regularities or structures in data. It is used in handwriting recognition, speech recognition, medical diagnosis, and image classification.
+61|Speech Recognition|Speech recognition converts spoken language into text. It is used in virtual assistants, transcription systems, voice commands, and accessibility tools.
+62|Image Processing|Image processing applies computational techniques to improve or analyze images. Common operations include filtering, edge detection, segmentation, enhancement, and object detection.
+63|Sentiment Analysis|Sentiment analysis identifies opinions and emotions expressed in text. It is often used to analyze product reviews, social media posts, and customer feedback.
+64|Topic Modeling|Topic modeling discovers hidden themes in a collection of documents. It helps summarize large text datasets and organize information automatically.
+65|Information Extraction|Information extraction identifies structured information from unstructured text. It can extract names, dates, locations, events, and relationships from documents.
+66|Question Answering System|A question answering system returns direct answers to user questions. It combines natural language processing, information retrieval, and knowledge representation.
+67|Document Classification|Document classification assigns text documents into predefined categories. It is useful for email filtering, news classification, legal document organization, and academic indexing.
+68|Document Clustering|Document clustering groups similar documents without predefined labels. It helps users explore large collections and discover related topics.
+69|Web Crawler|A web crawler automatically visits web pages and collects information for indexing. Search engines use crawlers to discover new pages and update existing content.
+70|Indexing Technique|Indexing techniques improve the speed of searching in large document collections. An inverted index maps terms to the documents where they appear.
+71|Boolean Retrieval|Boolean retrieval uses logical operators to combine search terms. Users can apply AND, OR, and NOT to control which documents are returned.
+72|Tolerant Retrieval|Tolerant retrieval allows a search system to handle imperfect queries. It can support spelling correction, wildcard matching, and approximate string matching.
+73|Levenshtein Distance|Levenshtein distance measures the minimum number of edits required to change one word into another. It is commonly used for spelling correction and fuzzy matching.
+74|Wildcard Search|Wildcard search allows users to search using incomplete word patterns. A query such as comput star can match computer, computing, and computation.
+75|Posting List|A posting list contains the identifiers of documents that contain a specific term. It is an important component of an inverted index in information retrieval systems.
+76|Tokenization|Tokenization splits text into smaller units such as words or terms. It is one of the first steps in text preprocessing and document indexing.
+77|Stopword Removal|Stopword removal eliminates common words that may not be useful for retrieval. Words such as the, is, and of are often removed during preprocessing.
+78|Stemming|Stemming reduces words to simpler base forms by removing common suffixes. For example, searching, searched, and searches can be reduced to search.
+79|Query Processing|Query processing transforms a user query into a form that can be evaluated by a retrieval system. It may include tokenization, parsing, normalization, and operator handling.
+80|Ranking Algorithm|A ranking algorithm orders search results based on estimated relevance. Although Boolean retrieval returns matching documents, ranked retrieval can sort documents by importance.
+81|Term Frequency|Term frequency counts how often a term appears in a document. It is often used to estimate the importance of a word within a specific document.
+82|Inverse Document Frequency|Inverse document frequency measures how rare or common a term is across a document collection. Rare terms are often more useful for distinguishing relevant documents.
+83|Vector Space Model|The vector space model represents documents and queries as vectors of term weights. Similarity between a query and a document can be measured using cosine similarity.
+84|Cosine Similarity|Cosine similarity measures the angle between two vectors. In text retrieval, it is often used to compare the similarity between a query and a document.
+85|Evaluation Metrics|Evaluation metrics are used to measure the quality of a search system. Common metrics include precision, recall, accuracy, F measure, and mean average precision.
+86|Precision and Recall|Precision measures how many retrieved documents are relevant, while recall measures how many relevant documents are retrieved. Both metrics are important in information retrieval evaluation.
+87|Search Result|A search result is the output returned by a retrieval system after processing a query. It usually contains document identifiers, titles, snippets, and relevance information.
+88|Text Preprocessing|Text preprocessing prepares raw text for analysis and indexing. It can include lowercasing, punctuation removal, tokenization, stopword removal, and stemming.
+89|Corpus|A corpus is a collection of text documents used for analysis or retrieval. In an information retrieval system, the corpus becomes the searchable document collection.
+90|Metadata|Metadata describes information about a document such as title, author, date, category, and source. It can help users filter and understand search results.
+91|File Processing|File processing involves reading, writing, and managing files in a computer program. A retrieval system may read document collections from text files before indexing them.
+92|Hash Map|A hash map stores key value pairs and allows fast lookup. In an inverted index, a term can be used as a key and a posting list can be used as the value.
+93|Set Operation|Set operations are useful for Boolean retrieval. Intersection supports AND queries, union supports OR queries, and complement supports NOT queries.
+94|Query Parser|A query parser analyzes the structure of a search query. It identifies terms, operators, parentheses, and the correct order of evaluation.
+95|Expression Tree|An expression tree represents a query as a tree structure. Each internal node can represent an operator, while each leaf node can represent a search term.
+96|Software Modularity|Software modularity divides a program into smaller independent components. A modular search engine is easier to test, maintain, and extend.
+97|Design Pattern|A design pattern is a reusable solution to a common software design problem. Patterns such as Facade, Strategy, and Composite can help organize a retrieval system.
+98|Command Line Interface|A command line interface allows users to interact with a program using text commands. A simple retrieval system can use a terminal menu to accept search queries.
+99|Program Testing|Program testing checks whether each feature works as expected. A search engine should be tested using single term queries, Boolean queries, wildcard queries, and typo queries.
+100|System Documentation|System documentation explains how a program works and how users can run it. A good README should describe the dataset format, program features, compile commands, and example queries.
+101|Probabilistic Retrieval|Probabilistic retrieval estimates how likely a document is relevant to a query. It uses probability theory to rank documents under uncertainty and is a foundation for several modern retrieval models.
+102|Binary Independence Model|The Binary Independence Model represents terms as binary features that indicate whether a word appears in a document. It assumes query terms are independent and scores documents using probabilistic term weights.
+103|Retrieval Status Value|Retrieval status value is a score used to order documents in response to a query. A higher value indicates that a document is estimated to be more relevant than other documents.
+104|Relevance Judgment|Relevance judgment is the process of deciding whether a document is relevant to a particular query. These judgments are used as ground truth when evaluating information retrieval systems.
+105|Okapi BM25|Okapi BM25 is a ranking function that uses term frequency, inverse document frequency, and document length normalization. It is widely used because it balances term importance and document size effectively.
+106|BM10 Model|BM10 is a member of the best match family of retrieval models. It applies term frequency saturation but does not use the same document length normalization found in BM25.
+107|Two Poisson Retrieval|Two Poisson retrieval models term frequency using two different distributions. One distribution represents documents where a term is central to the topic, while the other represents documents where the term appears less importantly.
+108|Elite Set|An elite set contains documents where a term is strongly associated with the main topic. In probabilistic retrieval, elite and non elite documents can have different term frequency behavior.
+109|Term Weighting|Term weighting assigns numerical importance to terms in documents or queries. Rare and informative terms usually receive higher weights than common terms.
+110|Document Ranking|Document ranking orders retrieved documents based on estimated relevance. Ranking is important because users usually inspect only the top results returned by a search system.
+111|Search Evaluation|Search evaluation measures how well a retrieval system returns relevant documents. It often uses test queries, relevance judgments, and metrics such as precision, recall, and MAP.
+112|Mean Average Precision|Mean average precision measures ranking quality across multiple queries. It averages the average precision score of each query to summarize overall retrieval performance.
+113|Average Precision|Average precision rewards systems that return relevant documents early in the ranking. It is computed by averaging precision values at ranks where relevant documents are found.
+114|Precision at K|Precision at K measures the proportion of relevant documents among the top K retrieved results. It is useful when users only care about the first few search results.
+115|Recall at K|Recall at K measures how many relevant documents are found within the top K results. It shows whether the system can retrieve a large portion of relevant information.
+116|Query Expansion|Query expansion improves a search query by adding related terms. It can help retrieve documents that use different vocabulary from the original user query.
+117|Pseudo Relevance Feedback|Pseudo relevance feedback assumes that the top retrieved documents are relevant. The system then extracts useful terms from those documents to improve the next search iteration.
+118|Index Compression|Index compression reduces the storage required for an inverted index. It can make large retrieval systems faster and more efficient.
+119|Skip Pointer|A skip pointer is an additional link inside a posting list that helps speed up query processing. It allows the system to jump over irrelevant parts of a list.
+120|Zone Index|A zone index stores terms according to document zones such as title, abstract, or body. It allows a search system to give different weights to different parts of a document.
+121|Field Weighting|Field weighting gives higher importance to terms appearing in important document fields. For example, a term in the title may be more valuable than the same term in the body.
+122|Anchor Text|Anchor text is the clickable text of a hyperlink. Search engines can use anchor text as evidence about the content of the linked page.
+123|PageRank|PageRank estimates the importance of web pages using link structure. A page linked by many important pages may receive a higher authority score.
+124|Web Search|Web search retrieves information from web pages across the internet. It combines crawling, indexing, ranking, spam detection, and user interface design.
+125|Crawler Frontier|A crawler frontier manages the list of URLs waiting to be visited by a web crawler. It helps decide which pages should be downloaded next.
+126|Duplicate Detection|Duplicate detection identifies documents with identical or near identical content. It helps reduce redundancy in search results and saves storage space.
+127|Near Duplicate Document|Near duplicate documents contain very similar text with small differences. Retrieval systems may remove or group them to improve result diversity.
+128|Shingling|Shingling represents a document using overlapping sequences of words or characters. It is often used to detect similarity between text documents.
+129|MinHash|MinHash is a technique for estimating similarity between sets efficiently. It is useful for detecting near duplicate documents at large scale.
+130|Locality Sensitive Hashing|Locality sensitive hashing groups similar items into the same buckets with high probability. It helps search systems find similar documents quickly.
+131|Snippet Generation|Snippet generation creates short text previews for search results. A good snippet highlights query terms and helps users decide which document to open.
+132|Result Diversification|Result diversification aims to reduce repetitive search results. It tries to present documents that cover different aspects of a user query.
+133|Learning to Rank|Learning to rank uses machine learning to order search results. It can combine many features such as term matching, document quality, click data, and freshness.
+134|Click Through Data|Click through data records which search results users select. It can provide implicit feedback about result usefulness, although it may contain bias.
+135|Query Log Analysis|Query log analysis studies past search queries to understand user behavior. It can reveal popular topics, spelling patterns, and information needs.
+136|Session Search|Session search considers multiple queries from the same user session. It helps the system understand context and improve later results.
+137|Intent Classification|Intent classification identifies the purpose behind a user query. A query may express informational, navigational, transactional, or exploratory intent.
+138|Navigational Query|A navigational query is used when a user wants to reach a specific website or page. The best result is often a known target document.
+139|Informational Query|An informational query is used when a user wants to learn about a topic. The search system should return documents that explain relevant concepts clearly.
+140|Transactional Query|A transactional query indicates that the user wants to perform an action. Examples include downloading software, buying a product, or booking a service.
+141|Faceted Search|Faceted search allows users to filter results using categories such as date, author, price, or topic. It is common in digital libraries and online stores.
+142|Vertical Search|Vertical search focuses on a specific domain such as images, news, academic papers, or products. It can use specialized ranking features for that domain.
+143|Enterprise Search|Enterprise search helps employees find documents inside an organization. It may index reports, emails, manuals, policies, and internal knowledge bases.
+144|Academic Search|Academic search systems help users find research papers, books, citations, and authors. They often use metadata such as publication year, venue, and citation count.
+145|Legal Search|Legal search retrieves laws, court decisions, contracts, and legal opinions. It requires careful handling of terminology, citations, and document authority.
+146|Medical Information Retrieval|Medical information retrieval searches clinical documents, biomedical articles, and health records. It requires high accuracy because search results can affect important decisions.
+147|Patent Retrieval|Patent retrieval helps users find inventions and technical descriptions. It often involves long documents, complex terminology, and detailed classification codes.
+148|Cross Language Retrieval|Cross language retrieval allows users to search documents written in another language. It may use translation dictionaries or machine translation models.
+149|Multilingual Retrieval|Multilingual retrieval manages search across collections containing multiple languages. It needs language detection, normalization, and language specific preprocessing.
+150|Semantic Search|Semantic search tries to understand the meaning behind a query instead of only matching exact words. It can retrieve documents that use related vocabulary.
+151|Neural Retrieval|Neural retrieval uses machine learning models to represent queries and documents. It can capture semantic similarity beyond exact keyword matching.
+152|Dense Retrieval|Dense retrieval represents text as numerical vectors in a continuous space. Similar documents can be found by comparing vector similarity.
+153|Sparse Retrieval|Sparse retrieval represents documents with many zero values and a limited set of active terms. Traditional inverted index retrieval is a common sparse approach.
+154|Hybrid Retrieval|Hybrid retrieval combines lexical matching and semantic matching. It can improve search quality by using both exact terms and meaning based similarity.
+155|Re Ranking|Re ranking applies a second ranking model to a smaller set of candidate documents. It is often used to improve the order of top results.
+156|Candidate Generation|Candidate generation selects an initial set of potentially relevant documents. A faster model usually performs this step before a more expensive ranking model.
+157|Query Likelihood Model|The query likelihood model ranks documents by estimating how likely a document language model would generate the query. It is a classic probabilistic retrieval approach.
+158|Language Model Retrieval|Language model retrieval treats each document as a statistical language model. It often uses smoothing to handle query terms that do not appear in a document.
+159|Smoothing|Smoothing adjusts probability estimates to avoid zero probabilities. It is important when a query term is absent from a document or appears rarely.
+160|Dirichlet Smoothing|Dirichlet smoothing is a method used in language model retrieval. It combines document term evidence with collection level term probabilities.
+161|Jelinek Mercer Smoothing|Jelinek Mercer smoothing interpolates document probabilities with collection probabilities. It helps balance document specific evidence and general corpus statistics.
+162|Collection Frequency|Collection frequency counts how many times a term appears in the entire document collection. It differs from document frequency, which counts documents containing the term.
+163|Document Length Normalization|Document length normalization adjusts scores so that long documents are not unfairly favored. BM25 uses a parameter to control the strength of this adjustment.
+164|Term Frequency Saturation|Term frequency saturation means that repeated occurrences of a term give diminishing score increases. This prevents very frequent terms from dominating the ranking.
+165|Vocabulary|A vocabulary is the set of unique terms found in a corpus after preprocessing. It determines the terms that can be indexed and searched.
+166|Dictionary Structure|A dictionary structure stores the vocabulary of an index. It maps each term to metadata such as document frequency and posting list location.
+167|Posting Compression|Posting compression stores posting lists using fewer bits. It can reduce memory usage and improve disk input output performance.
+168|Gap Encoding|Gap encoding stores differences between sorted document identifiers instead of full identifiers. It often makes posting lists easier to compress.
+169|Variable Byte Encoding|Variable byte encoding compresses integers using a variable number of bytes. It is commonly used in compressed indexing systems.
+170|Gamma Encoding|Gamma encoding is a compression method for positive integers. It can be used to store gaps in posting lists compactly.
+171|Index Construction|Index construction builds the data structures needed for search. It includes parsing documents, preprocessing terms, and writing posting lists.
+172|Blocked Sort Based Indexing|Blocked sort based indexing builds an inverted index by processing documents in blocks. Each block is sorted and later merged into a final index.
+173|Single Pass In Memory Indexing|Single pass in memory indexing creates posting lists dynamically while scanning documents. It avoids the need to sort all term document pairs at once.
+174|Incremental Indexing|Incremental indexing updates an index when new documents arrive. It is useful for systems where the document collection changes over time.
+175|Dynamic Indexing|Dynamic indexing supports document insertion, deletion, and modification. It is more complex than static indexing because posting lists must be maintained.
+176|Index Merging|Index merging combines multiple partial indexes into a larger index. It is often used in scalable indexing pipelines.
+177|Query Throughput|Query throughput measures how many queries a search system can process per second. It is important for systems with many simultaneous users.
+178|Query Latency|Query latency measures the time needed to answer a single query. Low latency improves user experience in interactive search systems.
+179|Caching|Caching stores frequently used data so it can be reused quickly. Search engines may cache query results, posting lists, or document snippets.
+180|Document Store|A document store keeps the original or processed form of documents. It allows a search system to display titles, snippets, and metadata after retrieval.
+181|Result Presentation|Result presentation controls how retrieved documents are shown to users. It may include titles, snippets, scores, dates, categories, and highlighted terms.
+182|Term Proximity|Term proximity considers how close query terms appear in a document. Documents where query terms occur near each other may be more relevant.
+183|Phrase Search|Phrase search retrieves documents containing an exact sequence of terms. It often requires positional information in the inverted index.
+184|Positional Index|A positional index stores the positions of terms inside documents. It supports phrase queries and proximity based ranking.
+185|Biword Index|A biword index stores pairs of consecutive terms. It can help support phrase search, although it requires more storage than a simple inverted index.
+186|Spelling Correction|Spelling correction suggests corrected query terms when users make typing mistakes. It can use edit distance, word frequency, and context.
+187|Soundex|Soundex is a phonetic algorithm that groups words with similar pronunciation. It can help retrieve names or terms that sound alike.
+188|Synonym Handling|Synonym handling allows a search system to match words with similar meanings. It can improve recall when documents use different terms from the query.
+189|Thesaurus|A thesaurus stores relationships between terms such as synonyms, broader terms, and narrower terms. It can support query expansion and semantic browsing.
+190|Ontology|An ontology describes concepts and relationships in a domain. It can help retrieval systems understand structured meaning and domain knowledge.
+191|Knowledge Base|A knowledge base stores facts, rules, and relationships about entities. It can support question answering, recommendation, and semantic search.
+192|Entity Recognition|Entity recognition identifies names of people, organizations, locations, dates, and other entities in text. It can improve search over structured and unstructured data.
+193|Entity Linking|Entity linking connects detected text mentions to known entities in a knowledge base. It helps disambiguate names that may refer to different concepts.
+194|Document Summarization|Document summarization produces a shorter version of a document while preserving key information. It can help users understand search results quickly.
+195|Extractive Summarization|Extractive summarization selects important sentences from a document. It does not generate new text but chooses existing content that best represents the document.
+196|Abstractive Summarization|Abstractive summarization generates new sentences to express the main ideas of a document. It may produce more natural summaries than extractive methods.
+197|Topic Detection|Topic detection identifies the main subject discussed in a document or document collection. It can support clustering, browsing, and trend analysis.
+198|Trend Analysis|Trend analysis studies changes in topics or behavior over time. Search logs and document streams can reveal emerging interests and important events.
+199|Information Need|An information need is the underlying reason a user performs a search. A query is only a short expression of that need and may be incomplete.
+200|User Feedback|User feedback provides signals about whether search results are useful. Feedback can be explicit through ratings or implicit through clicks and dwell time.
