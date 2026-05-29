@@ -7,30 +7,27 @@ public class TextPreprocessor {
     private Tokenizer tokenizer;
     private StopwordRemover stopwordRemover;
     private Stemmer stemmer;
-
+    // method untuk menginisialisasikan object Tokenizer, StopwordRemover, dan Stemmer
     public TextPreprocessor() {
-        // Membuat object Tokenizer, StopwordRemover, dan Stemmer.
-        //
-        // Class ini bertugas menggabungkan semua tahap preprocessing.
+        this.tokenizer = new Tokenizer();
+        this.stemmer = new Stemmer();
+        this.stopwordRemover = new StopwordRemover();
     }
-
+    // method untuk melakukan preprocessing
     public List<String> preprocess(String text) {
-        // Melakukan preprocessing lengkap.
-        //
-        // STEP 1:
-        // Ubah teks menjadi lowercase.
-        //
-        // STEP 2:
-        // Tokenisasi teks menggunakan Tokenizer.
-        //
-        // STEP 3:
-        // Hapus stopword menggunakan StopwordRemover.
-        //
-        // STEP 4:
-        // Lakukan stemming menggunakan Stemmer.
-        //
-        // STEP 5:
-        // Return token akhir.
-        return null;
+        //cek apakah text null
+        if(text == null){
+            text = "";
+        }
+        // Ubah teks menjadi lowercase
+        String loweredText = text.toLowerCase();
+        // tokenisasi teks menggunakan Tokenizer
+        List<String> tokens = tokenizer.tokenize(loweredText);
+        // hapus stopword menggunakan StopwordRemover
+        List<String> filteredTokens = stopwordRemover.remove(tokens);
+        // lakukan stemming menggunakan Stemmer
+        List<String> stemmedToken = stemmer.stemAll(filteredTokens);
+        // Return token hasilnya
+        return stemmedToken;
     }
 }

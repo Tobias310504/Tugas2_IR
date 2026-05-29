@@ -1,16 +1,22 @@
 package ir.app;
 
-public class IRApplication {
+import ir.document.Document;
+import ir.io.DocumentReader;
+import ir.preprocessing.TextPreprocessor;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class IRApplication {
+    // method untuk mengatur alur utama program
     public void run() {
-        // Mengatur alur utama program.
-        //
-        // STEP 1:
-        // Baca data/documents.txt menggunakan DocumentReader.
-        //
-        // STEP 2:
-        // Buat TextPreprocessor.
-        //
+        //insialisasi kelas DocumentReader
+        DocumentReader reader = new DocumentReader();
+        //buat list document untuk menaruh kalimat-kalimat yang ada di dokumen
+        List<Document> documents = reader.readDocuments("data/documents.txt");
+        // buat TextPreprocessor
+        TextPreprocessor preprocessor = new TextPreprocessor();
         // STEP 3:
         // Bangun InvertedIndex menggunakan Indexer.
         //
