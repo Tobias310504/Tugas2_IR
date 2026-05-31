@@ -6,24 +6,21 @@ public class Posting {
     private int termFrequency;
 
     public Posting(String documentId) {
-        // Menyimpan ID dokumen.
-        // Set termFrequency awal menjadi 1.
+        // simpan ID dokumen
+        this.documentId = documentId;
+        //set termFrequency 1 di awal
+        this.termFrequency = 1;
     }
-
+    // method untuk mengembalikan ID dokumen dalam bentuk string
     public String getDocumentId() {
-        // Mengembalikan ID dokumen.
-        return null;
+        return documentId;
     }
-
+    // method untuk mengembalikan frekuensi term pada sebuah dokumen
     public int getTermFrequency() {
-        // Mengembalikan frekuensi term pada dokumen ini.
-        return 0;
+        return termFrequency;
     }
-
+    //method yang dipanggil ketika term yang sama muncul lgi, lalu akan menambahkan term frequency pada dokumennya
     public void incrementTermFrequency() {
-        // Menambah termFrequency sebesar 1.
-        //
-        // Dipanggil ketika term yang sama muncul lagi
-        // pada dokumen yang sama.
+        termFrequency++;
     }
 }

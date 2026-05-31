@@ -1,21 +1,16 @@
 package ir.index;
 
 public class IndexStatistics {
-
+    //method untuk menghitung jumlah term unik dalam index
     public int getVocabularySize(InvertedIndex index) {
-        // Menghitung jumlah term unik dalam index.
-        //
-        // Method ini opsional.
-        // Bisa dipakai untuk menampilkan ringkasan index.
-        return 0;
+        return index.getVocabularySize();
     }
-
+    //method untuk enampilkan statistik index
     public void printSummary(InvertedIndex index) {
-        // Menampilkan statistik index.
-        //
-        // Contoh:
-        // total dokumen
-        // rata-rata panjang dokumen
-        // jumlah vocabulary
+        System.out.println("===== Index Summary =====");
+        System.out.println("Total dokumen: " + index.getTotalDocuments());
+        System.out.println("Average document length: " + index.getAverageDocumentLength());
+        System.out.println("Vocabulary size: " + getVocabularySize(index));
+        System.out.println("=========================");
     }
 }

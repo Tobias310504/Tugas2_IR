@@ -1,25 +1,21 @@
 package ir.app;
 
 import ir.document.Document;
+import ir.index.IndexStatistics;
+import ir.index.Indexer;
+import ir.index.InvertedIndex;
 import ir.io.DocumentReader;
 import ir.preprocessing.TextPreprocessor;
-
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class IRApplication {
     // method untuk mengatur alur utama program
     public void run() {
-        //insialisasi kelas DocumentReader
-        DocumentReader reader = new DocumentReader();
-        //buat list document untuk menaruh kalimat-kalimat yang ada di dokumen
-        List<Document> documents = reader.readDocuments("data/documents.txt");
-        // buat TextPreprocessor
-        TextPreprocessor preprocessor = new TextPreprocessor();
-        // STEP 3:
-        // Bangun InvertedIndex menggunakan Indexer.
-        //
+        //bangun inverted index dari documents.txt
+        InvertedIndex index = buildIndex();
+        //panggil index statistic buat menampilkan ringkasan index
+        IndexStatistics statistics = new IndexStatistics();
+        statistics.printSummary(index);
         // STEP 4:
         // Pilih mode program:
         // - interactive search: query diketik langsung dari terminal
@@ -38,27 +34,20 @@ public class IRApplication {
         // STEP 7:
         // Jika evaluation mode, hitung Precision@K, Recall@K, dan MAP.
     }
-
-    private void buildIndex() {
-        // Method ini bertugas membangun index.
-        //
-        // STEP 1:
-        // Panggil DocumentReader untuk membaca documents.txt.
-        //
-        // STEP 2:
-        // Hasil pembacaan berupa List<Document>.
-        //
-        // STEP 3:
-        // Buat object TextPreprocessor.
-        //
-        // STEP 4:
-        // Buat object Indexer.
-        //
-        // STEP 5:
-        // Panggil Indexer.buildIndex(documents).
-        //
-        // STEP 6:
-        // Simpan hasil InvertedIndex untuk dipakai SearchEngine.
+    //method ini berfungsi untuk membangun index
+    private InvertedIndex buildIndex() {
+        //panggil documentReader untuk membaca documents.txt
+        DocumentReader reader = new DocumentReader();
+        //hasil pembacaan berupa List<Document>
+        List<Document> documents = reader.readDocuments("data/documents.txt");
+        //buat object text preprocessor
+        TextPreprocessor preprocessor = new TextPreprocessor();
+        //buat object Indexer
+        Indexer indexer = new Indexer(preprocessor);
+        //panggil Indexer.buildIndex(documents)
+        InvertedIndex index = indexer.buildIndex(documents);
+        //kembalikan hasil inverted index untuk dipakai search engine
+        return index;
     }
 
     private void runInteractiveMode() {
