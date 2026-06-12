@@ -4,7 +4,8 @@ import ir.index.InvertedIndex;
 import ir.preprocessing.TextPreprocessor;
 import ir.retrieval.RetrievalModel;
 import ir.retrieval.SearchResult;
-
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class BM25Model implements RetrievalModel {
@@ -14,10 +15,13 @@ public class BM25Model implements RetrievalModel {
     private double b;
 
     public BM25Model(TextPreprocessor preprocessor) {
-        // Menyimpan TextPreprocessor.
+        //simpan TextPreprocessor
+        this.preprocessor = preprocessor;
         // Set parameter BM25:
         // k1 = 1.5
+        this.k1 = 1.5;
         // b  = 0.75
+        this.b = 0.75;
     }
 
     @Override
@@ -25,77 +29,66 @@ public class BM25Model implements RetrievalModel {
         // Mengembalikan nama model.
         return "BM25";
     }
-
+    //method untuk menghitung ranking menggunakan BM25
     @Override
     public List<SearchResult> rank(String query, InvertedIndex index) {
-        // Menghitung ranking menggunakan BM25.
-        //
-        // STEP 1:
-        // Preprocess query.
-        //
-        // STEP 2:
+        //inisialisasi list kosong untuk menghitung skor dokumen
+        List<SearchResult> skorDokumen = new ArrayList<>();
+        //buat list untuk menampung tokenisasi dari query
+        List<String> tokenQuery = preprocessor.preprocess(query);
         // Loop semua dokumen.
-        //
-        // STEP 3:
-        // Untuk setiap term query:
-        // - ambil tf
-        // - ambil df
-        // - ambil total dokumen
-        // - ambil document length
-        // - ambil average document length
-        //
-        // STEP 4:
-        // Hitung skor term BM25.
-        //
-        // STEP 5:
-        // Jumlahkan semua skor term.
-        //
-        // STEP 6:
-        // Buat SearchResult.
-        //
-        // STEP 7:
-        // Return ranking.
-        return null;
-    }
+        for(String doc : index.getAllDocumentIds()){
+            //set skor awal itu 0.0
+            double skor = 0.0;
+            //lalu loop seluruh query yang sudah di tokenisasi
+            for(String term : tokenQuery){
+                // ambil tf dan df nya
+                int tf = index.getTermFrequency(term, doc);
+                int df = index.getDocumentFrequency(term);
+                //ambil total dokumen
+                int totalDokumen = index.getTotalDocuments();
+                //ambil panjang dokumen
+                int documentLength = index.getDocumentLength(doc);
+                //ambil panjang avg dari dokumen
+                double documentAvgLength = index.getAverageDocumentLength();
+                // update skor untuk dokumen saat ini
+                skor += computeTermScore(tf, df, totalDokumen, documentLength, documentAvgLength);
 
-    private double computeTermScore(
-            int tf,
-            int df,
-            int totalDocuments,
-            int documentLength,
-            double averageDocumentLength
-    ) {
-        // Menghitung skor satu term pada BM25.
-        //
-        // Formula:
-        // idf * ((tf * (k1 + 1)) /
-        //       (tf + k1 * (1 - b + b * dl / avgdl)))
-        //
-        // STEP 1:
-        // Jika tf = 0, return 0.
-        //
-        // STEP 2:
-        // Hitung idf.
-        //
-        // STEP 3:
-        // Hitung normalisasi panjang dokumen.
-        //
-        // STEP 4:
-        // Hitung numerator.
-        //
-        // STEP 5:
-        // Hitung denominator.
-        //
-        // STEP 6:
-        // Return skor term.
-        return 0.0;
+            }
+            //masukan skor dokumen ke list
+            skorDokumen.add(new SearchResult(doc, skor));
+        }
+        //sorting list skorDokumen
+        Collections.sort(skorDokumen);
+        //return list skorDokumennya
+        return skorDokumen;
     }
-
+    //method untuk menghitung skor untuk 1 term pada BM25
+    private double computeTermScore(int tf, int df, int totalDocuments, int documentLength, double averageDocumentLength) {
+        //kalau term tidak muncul di dokumen, maka skor 0.0
+        if(tf <= 0){
+            return 0.0;
+        }
+        //cek juga apakah df, total dokumen, dan avg panjang dokumen 0 atau tidak, agar pembagi tidak 0 kembalikan skor 0
+        if(df <= 0 || totalDocuments <= 0 || averageDocumentLength <= 0){
+            return 0.0;
+        }
+        //hitung idfnya
+        double idf = computeIdf(df, totalDocuments);
+        //hitung normalisasi panjang dokumen
+        double normalizeLength = 1 - b + b * ((double) documentLength / averageDocumentLength);
+        //hitung numeratornya
+        double nurmerator = tf * (k1 + 1);
+        //hitung denominatornya
+        double denominator = tf + k1 * normalizeLength;
+        //return skor term
+        double skor = idf * (nurmerator / denominator);
+        return skor;
+    }
+    //method untuk menghitung idf untuk BM25
     private double computeIdf(int df, int totalDocuments) {
-        // Menghitung IDF untuk BM25.
-        //
-        // Formula umum:
-        // idf = log((N - df + 0.5) / (df + 0.5) + 1)
-        return 0.0;
+        //menghitung IDF untuk BM25
+        double idf = Math.log(((totalDocuments - df + 0.5)/(df + 0.5)) + 1);
+        return idf;
     }
 }

@@ -19,7 +19,7 @@ public class InvertedIndex {
     }
     // method untuk menambahkan term ke inverted index
     public void addTerm(String term, String documentId) {
-        // cek apakah term sudah ada di index
+        // cek apakah term sudah ada di index, kalau belum buat postinglist baru
         if(!index.containsKey(term)){
             //inisialisasi postinglist
             List<Posting> postingList = new ArrayList<>();
@@ -27,6 +27,8 @@ public class InvertedIndex {
             postingList.add(new Posting(documentId));
             //baru masukan ke inverted index nya
             index.put(term, postingList);
+            //keluar dari method agar penambahan postinglist baru tidak double karna di bawah ada juga membuat postinglist baru
+            return;
         }
         //kalau term sudah ada, ambil posting list-nya
         List<Posting> postingList = index.get(term);
@@ -35,6 +37,7 @@ public class InvertedIndex {
             if(posting.getDocumentId().equals(documentId)){
                 //kalau sudah ada kita tambahkan term frequencynya untuk dokumen tersebut
                 posting.incrementTermFrequency();
+                return;
             }
         }
         //kalau belum ada, buat Posting baru

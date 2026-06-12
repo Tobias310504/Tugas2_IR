@@ -11,13 +11,11 @@ public class DocumentReader {
     public List<Document> readDocuments(String fileName) {
         //inisialisasikan arraylist untuk menyimpan seluruh dokumen
         List<Document> documents  = new ArrayList<Document>();
-
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))){
             String line;
             //scan line per line sampai line tidak memiliki artikel lgi
             while ((line = reader.readLine()) != null){
                 line = line.trim();
-
                 //kalau baris kosong di skip
                 if(line.isEmpty()){
                     continue;
