@@ -4,7 +4,8 @@ import ir.index.InvertedIndex;
 import ir.preprocessing.TextPreprocessor;
 import ir.retrieval.RetrievalModel;
 import ir.retrieval.SearchResult;
-
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class TwoPoissonModel implements RetrievalModel {
@@ -13,72 +14,72 @@ public class TwoPoissonModel implements RetrievalModel {
     private double k;
 
     public TwoPoissonModel(TextPreprocessor preprocessor) {
-        // Menyimpan TextPreprocessor.
-        // Set nilai k, misalnya 1.5.
+        //simpan TextPreprocessor
+        this.preprocessor = preprocessor;
+        //set nilai k
+        this.k = 1.5;
     }
-
+    //method untuk mengembalikan nama model
     @Override
     public String getModelName() {
-        // Mengembalikan nama model.
         return "Two-Poisson";
     }
 
     @Override
     public List<SearchResult> rank(String query, InvertedIndex index) {
-        // Menghitung ranking menggunakan Two-Poisson Model.
-        //
-        // STEP 1:
-        // Preprocess query.
-        //
-        // STEP 2:
+        //inisialisasi list kosong untuk menghitung skor dokumen
+        List<SearchResult> skorDokumen = new ArrayList<>();
+        //buat list untuk menampung tokenisasi dari query
+        List<String> tokenQuery = preprocessor.preprocess(query);
         // Loop semua dokumen.
-        //
-        // STEP 3:
-        // Untuk setiap query term, ambil tf pada dokumen.
-        //
-        // STEP 4:
-        // Hitung bobot term.
-        //
-        // STEP 5:
-        // Hitung term score:
-        // score_t = (tf * (k + 1) * weight) / (tf + k)
-        //
-        // STEP 6:
-        // Jumlahkan semua term score menjadi skor dokumen.
-        //
-        // STEP 7:
-        // Buat SearchResult.
-        //
-        // STEP 8:
-        // Return ranking.
-        return null;
+        for(String doc : index.getAllDocumentIds()){
+            //set skor awal itu 0.0
+            double skor = 0.0;
+            //lalu loop seluruh query yang sudah di tokenisasi
+            for(String term : tokenQuery){
+                // ambil tf dan weight dokumennya nya
+                int tf = index.getTermFrequency(term, doc);
+                //hitung weightnya 
+                double weight = computeWeight(term, index);
+                // update skor untuk dokumen saat ini
+                skor += computeTermScore(tf, weight);
+            }
+            //masukan skor dokumen ke list
+            skorDokumen.add(new SearchResult(doc, skor));
+        }
+        //sorting list skorDokumen
+        Collections.sort(skorDokumen);
+        //return list skorDokumennya
+        return skorDokumen;
     }
-
+    //method untuk menghitung skor satu term pada Two-Poisson
     private double computeTermScore(int tf, double weight) {
-        // Menghitung skor satu term pada Two-Poisson.
-        //
-        // STEP 1:
-        // Jika tf = 0, return 0.
-        //
-        // STEP 2:
-        // Hitung numerator = tf * (k + 1) * weight.
-        //
-        // STEP 3:
-        // Hitung denominator = tf + k.
-        //
-        // STEP 4:
-        // Return numerator / denominator.
-        return 0.0;
+        ///kalau term tidak muncul di dokumen, maka skor 0.0
+        if(tf <= 0){
+            return 0.0;
+        }
+        //hitung numerator = tf * (k + 1) * weight
+        double nurmerator = tf * (k + 1) * weight;
+        //hitung denominator = tf + k
+        double denominator = tf + k;
+        //hitung skor nya lalu return skor nya
+        double skor = nurmerator / denominator;
+        return skor;
     }
-
+    //method untuk menghitung bobot term
     private double computeWeight(String term, InvertedIndex index) {
-        // Menghitung bobot term.
-        //
-        // Untuk versi awal, boleh memakai bobot seperti BIM:
-        // wt = log(0.5 * N / Nt)
-        //
-        // N  = total dokumen
-        // Nt = document frequency term
-        return 0.0;
+        //simpan total dokumen
+        int totalDocuments = index.getTotalDocuments();
+        //simpan document frequency term
+        int documentFreqTerms = index.getDocumentFrequency(term);
+
+        //kalau dokumen frekuensi 0 atau total dokumen 0 maka return weight 0
+        if(documentFreqTerms == 0 || totalDocuments == 0){
+            return 0.0;
+        }
+        // hitung weightnya
+        double weight = Math.log((0.5 * totalDocuments)/ documentFreqTerms);
+        //kembalikan weight nya
+        return weight;
     }
 }

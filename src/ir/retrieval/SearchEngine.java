@@ -1,6 +1,7 @@
 package ir.retrieval;
 
 import ir.index.InvertedIndex;
+import java.util.ArrayList;
 import java.util.List;
 
 public class SearchEngine {
@@ -8,23 +9,18 @@ public class SearchEngine {
     private InvertedIndex index;
 
     public SearchEngine(InvertedIndex index) {
-        // Menyimpan InvertedIndex yang sudah dibangun.
+        //simpan InvertedIndex yang sudah dibangun
+        this.index = index;
     }
-
+    //method untuk menjalankan pencarian dengan model tertentu
     public List<SearchResult> search(String query, RetrievalModel model, int topK) {
-        // Menjalankan pencarian dengan model tertentu.
-        //
-        // STEP 1:
-        // Panggil model.rank(query, index).
-        //
-        // STEP 2:
-        // Urutkan hasil berdasarkan skor descending.
-        //
-        // STEP 3:
-        // Ambil topK dokumen.
-        //
-        // STEP 4:
-        // Return hasil topK.
-        return null;
+        //panggil model.rank(query, index)
+        List<SearchResult> results = model.rank(query, index);
+        //ambil topK dokumen
+        if(topK <= 0 || topK >= results.size()){
+            return results;
+        }
+        //kembalikan hasil topK
+        return new ArrayList<>(results.subList(0,topK));
     }
 }

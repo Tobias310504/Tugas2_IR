@@ -4,22 +4,16 @@ public class Query {
 
     private String id;
     private String text;
-
+    //konstruktornya 
     public Query(String id, String text) {
-        // Menyimpan ID query dan teks query.
-        //
-        // Contoh:
-        // id   = "Q1"
-        // text = "probabilistic information retrieval"
+        this.id = id;
+        this.text = text;
     }
-
+    //buat getter dan setternya 
     public String getId() {
-        // Mengembalikan ID query.
-        return null;
+        return this.id;
     }
-
     public String getText() {
-        // Mengembalikan teks query.
-        return null;
+        return this.text;
     }
 }
