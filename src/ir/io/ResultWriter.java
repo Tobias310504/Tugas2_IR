@@ -58,6 +58,7 @@ public class ResultWriter {
        }
     }
 
+    
     public void printMap(String modelName, double map) {
        //tampilkan nilai MAP untuk satu model ke terminal
        System.out.println(String.format(Locale.US, "MAP %s : %.6f", modelName, map));
