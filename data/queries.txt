@@ -1,10 +1,10 @@
-Q1|probabilistic retrieval binary independence two poisson model
-Q2|bm25 ranking term frequency document length normalization
-Q3|inverted index preprocessing tokenization stopword stemming posting list
-Q4|search evaluation relevance judgment precision recall mean average precision
-Q5|web search crawler indexing pagerank ranking algorithm
-Q6|semantic neural dense sparse hybrid retrieval search
-Q7|query processing expansion feedback user intent information need
-Q8|duplicate detection document similarity shingling minhash locality sensitive hashing
-Q9|language model retrieval smoothing collection frequency probability
-Q10|index compression query latency throughput caching scalable indexing
+Q1|what similarity laws must be obeyed when constructing aeroelastic models of heated high speed aircraft .
+Q2|what are the structural and aeroelastic problems associated with flight of high speed aircraft .
+Q3|what problems of heat conduction in composite slabs have been solved so far .
+Q4|can a criterion be developed to show empirically the validity of flow solutions for chemically reacting gas mixtures based on the simplifying assumption of instantaneous local chemical equilibrium .
+Q5|what chemical kinetic system is applicable to hypersonic aerodynamic problems .
+Q6|what theoretical and experimental guides do we have as to turbulent couette flow behaviour .
+Q7|is it possible to relate the available pressure distributions for an ogive forebody at zero angle of attack to the lower surface pressures of an equivalent ogive forebody at angle of attack .
+Q8|what methods -dash exact or approximate -dash are presently available for predicting body pressures at angle of attack.
+Q9|papers on internal /slip flow/ heat transfer studies .
+Q10|are real-gas transport properties for air available over a wide range of enthalpies and densities .
