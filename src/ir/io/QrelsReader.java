@@ -1,28 +1,47 @@
 package ir.io;
 
 import ir.evaluation.RelevanceJudgment;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class QrelsReader {
 
     public List<RelevanceJudgment> readQrels(String filePath) {
-        //TODO buat list untuk menyimpan semua relevance judgment
-        //TODO buka file qrels.txt berdasarkan filePath
-        //TODO baca file baris per baris
-        //TODO trim setiap baris supaya spasi depan belakang hilang
-        //TODO kalau baris kosong maka lanjut ke baris berikutnya
-        //TODO pecah baris dengan tanda | karena formatnya queryId|documentId|relevance
-        //TODO kalau format tidak sesuai maka baris tersebut dilewati
-        //TODO ambil queryId dari bagian pertama
-        //TODO ambil documentId dari bagian kedua
-        //TODO ambil relevance dari bagian ketiga
-        //TODO kalau ada data yang kosong maka baris tersebut dilewati
-        //TODO ubah relevance dari String menjadi int
-        //TODO kalau relevance bukan angka maka baris tersebut dilewati
-        //TODO buat object RelevanceJudgment dari queryId, documentId, dan relevance
-        //TODO masukkan object RelevanceJudgment ke list
-        //TODO tangani error kalau file gagal dibaca
-        //TODO return list relevance judgment yang sudah berhasil dibaca
-        return null;
+        //inisialisasikan arraylist untuk menyimpan seluruh dokumen
+        List<RelevanceJudgment> eval  = new ArrayList<RelevanceJudgment>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))){
+            String line;
+            //scan line per line sampai line tidak ada lgi
+            while ((line = reader.readLine()) != null){
+                line = line.trim();
+                //kalau baris kosong di skip
+                if(line.isEmpty()){
+                    continue;
+                }
+                //format relevance judgment adalah 1 baris 1 relevance judgment (query|documentId|relevansi nya)
+                String[] parts = line.split("\\|", 3);
+                //kalau format relevance judgment tidak sesuai maka skip baris tersebut
+                if(parts.length < 3){
+                    continue;
+                }
+                //ambil query nya yaitu di parts index 0
+                String query = parts[0].trim();
+                //ambil dokumen id nya  di parts index 1
+                String documentId = parts[1].trim();
+                //ambil text yang relevan di parts index 2
+                String relevanceText = parts[2].trim();
+                //parse relevanceText menjadi integer
+                int relevance = Integer.parseInt(relevanceText);
+                //inisialisasi relevance judgment untuk menyimpan query, id dokumen, dan relevansinya
+                RelevanceJudgment hasil = new RelevanceJudgment(query, documentId, relevance);
+                eval.add(hasil);
+            }
+        }catch (IOException e){
+            System.out.println("Error opening file: "+ e.getMessage());
+        }
+        return eval;
     }
 }

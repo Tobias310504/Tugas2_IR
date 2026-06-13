@@ -7,35 +7,71 @@ public class ConsoleInput {
     private Scanner scanner;
 
     public ConsoleInput() {
-        //TODO buat Scanner untuk membaca input dari terminal
+        this.scanner = new Scanner(System.in);
+    }
+
+    public String readRunMode() {
+        //pilihan mode menjalankan program
+        System.out.println("Pilih mode program:");
+        //pilihan 1 untuk input query manual dari terminal
+        System.out.println("1. Input query sendiri");
+        //pilihan 2 untuk membaca query dari file txt
+        System.out.println("2. Input query dari file queries.txt");
+        //baca pilihan user
+        System.out.print("Pilihan: ");
+        String pilihan = scanner.nextLine();
+        //trim pilihan user
+        pilihan = pilihan.trim();
+        //kembalikan pilihan user
+        return pilihan;
     }
 
     public String readQuery() {
-        //TODO tampilkan pesan untuk memasukkan query
-        //TODO baca query dari terminal menggunakan scanner
-        //TODO trim query supaya spasi depan belakang hilang
-        //TODO return query yang sudah dibaca
-        return null;
+        System.out.println("Masukan kata yang ingin dicari");
+        //baca query dari terminal menggunakan scanner
+        String query = scanner.nextLine();
+        //trim query untuk menghilangkan spasi
+        query = query.trim();
+        //return query 
+        return query;
     }
 
     public String readModelChoice() {
-        //TODO tampilkan pilihan model retrieval
-        //TODO tampilkan pilihan 1 untuk BIM
-        //TODO tampilkan pilihan 2 untuk Two-Poisson
-        //TODO tampilkan pilihan 3 untuk BM25
-        //TODO tampilkan pilihan 4 untuk BM10
-        //TODO baca pilihan user dari terminal
-        //TODO trim pilihan user
-        //TODO return pilihan user
-        return null;
+        //pilihan model retrieval
+        System.out.println("Pilih model retrieval (Menulis angka pilihan) :");
+        //pilihan 1 untuk BIM
+        System.out.println("1. BIM");
+        //pilihan 2 untuk Two-poisson
+        System.out.println("2. Two-Poisson");
+        //pilihan 3 untuk BM25
+        System.out.println("3. BM25");
+        //pilihan 4 untuk BM10
+        System.out.println("4. BM10");
+        //baca plihan user
+        System.out.print("Pilihan: ");
+        String pilihan = scanner.nextLine();
+        //trim pilihan user
+        pilihan = pilihan.trim();
+        //kembalikan pilihan user
+        return pilihan;
     }
 
     public int readTopK() {
-        //TODO tampilkan pesan untuk memasukkan topK
-        //TODO baca input topK dari terminal
-        //TODO ubah input dari String menjadi int
-        //TODO kalau input valid dan lebih besar dari 0 maka return nilai tersebut
-        //TODO kalau input tidak valid maka gunakan nilai default
-        return 0;
+        //tampilkan pesan untuk memasukkan topK
+        System.out.println("TopK: ");
+        //baca input topK 
+        String input = scanner.nextLine();
+        try {
+            //ubah input dari String menjadi int
+            int topK = Integer.parseInt(input);
+            //kalau input valid dan lebih besar dari 0 maka return nilai tersebut
+            if(topK > 0){
+                return topK;
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("input topK tidak valid, memakai default 10");
+        }
+        //kalau input tidak valid maka gunakan nilai default = 10
+        return 10;
     }
 }

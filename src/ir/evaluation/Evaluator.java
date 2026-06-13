@@ -108,8 +108,8 @@ public class Evaluator {
         if(limit == 0){
             return 0.0;
         }
-       //panggil method untuk menghitung jumlah dokumen yang relevant pada k
-       int count = countRelevantRetrieved(rankedResults, relevantDocuments, limit);
+        //panggil method untuk menghitung jumlah dokumen yang relevant pada k
+        int count = countRelevantRetrieved(rankedResults, relevantDocuments, limit);
         //hitung precision@K = relevant retrieved / jumlah dokumen yang diambil
         double precision = (double) count / limit;
         //kembalikan hasil precisionnya

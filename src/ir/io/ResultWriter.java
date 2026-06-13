@@ -8,59 +8,75 @@ import java.util.Locale;
 public class ResultWriter {
 
     public void printRanking(String modelName, List<SearchResult> results) {
-       //tampilkan judul hasil ranking berdasarkan nama model
-       System.out.println("===== " + modelName + " Results =====");
-       //kalau results null atau kosong maka tampilkan pesan tidak ada hasil
-       if (results == null || results.isEmpty()) {
-           System.out.println("Tidak ada hasil ranking");
-           return;
-       }
-       //loop semua SearchResult berdasarkan urutan ranking
-       for (int i = 0; i < results.size(); i++) {
-           //ambil SearchResult pada index ke-i
-           SearchResult result = results.get(i);
-
-           //rank dimulai dari 1
-           int rank = i + 1;
-
-           //tampilkan rank, document id, dan score ke terminal
-           System.out.println(String.format(
-                   Locale.US,
-                   "%d. %s : %.6f",
-                   rank,
-                   result.getDocumentId(),
-                   result.getScore()
-           ));
-       }
+        //judul hasil ranking berdasarkan nama model
+        System.out.println();
+        System.out.println("===== " + modelName + " Ranking =====");
+        //kalau results null atau kosong maka tampilkan pesan tidak ada hasil
+        if(results == null || results.isEmpty()){
+            System.out.println("Belum ada hasil");
+            return;
+        }
+        System.out.println("----------------------------------------");
+        System.out.printf("%-6s %-12s %-12s%n", "Rank", "Document", "Score");
+        System.out.println("----------------------------------------");
+        //loop semua SearchResult berdasarkan urutan ranking
+        for(int i = 0 ; i < results.size(); i++){
+            //ambil SearchResult pada index ke-i
+            SearchResult result = results.get(i);
+            //buat nilai rank mulai dari 1
+            int rank = i + 1;
+            //ambil documentId dari SearchResult
+            String documentId = result.getDocumentId();
+            //ambil score dari SearchResult
+            double score = result.getScore();
+            //print rank, documentId, dan score
+            System.out.printf(Locale.US, "%-6d %-12s %-12.4f%n", rank, documentId, score);
+        }
+        System.out.println("----------------------------------------");
     }
 
     public void printEvaluation(List<EvaluationResult> results) {
-       //kalau results null atau kosong maka tampilkan pesan tidak ada evaluasi
-       if (results == null || results.isEmpty()) {
-           System.out.println("Tidak ada hasil evaluasi");
-           return;
-       }
-       //loop semua hasil evaluasi
-       for (EvaluationResult result : results) {
-           //tampilkan nilai evaluasi setiap query ke terminal
-           System.out.println(String.format(
-                   Locale.US,
-                   "%s | %s | P@%d = %.6f | R@%d = %.6f | F1 = %.6f | AP = %.6f",
-                   result.getModelName(),
-                   result.getQueryId(),
-                   result.getTopK(),
-                   result.getPrecisionAtK(),
-                   result.getTopK(),
-                   result.getRecallAtK(),
-                   result.getF1AtK(),
-                   result.getAveragePrecision()
-           ));
-       }
+        //kalau results null atau kosong maka print "tidak ada evaluasi"
+        if(results == null || results.isEmpty()){
+            System.out.println("Tidak ada evaluasi");
+            return;
+        }
+        System.out.println();
+        System.out.println("===== " + results.get(0).getModelName() + " Evaluation =====");
+        System.out.println("----------------------------------------------------------------------------");
+        System.out.printf("%-8s %-6s %-10s %-10s %-10s %-10s%n", "Query", "K", "P@K", "R@K", "F1", "AP");
+        System.out.println("----------------------------------------------------------------------------");
+        //loop semua EvaluationResult
+        for(EvaluationResult res : results){
+            //ambil id query
+            String queryId = res.getQueryId();
+            //ambil topK
+            int topK = res.getTopK();
+            //ambil precision
+            double precision = res.getPrecisionAtK();
+            //ambil recall
+            double recall = res.getRecallAtK();
+            //ambil f1
+            double f1 = res.getF1AtK();
+            //ambil average precision
+            double averagePrecision = res.getAveragePrecision();
+            //print hasil evaluasi per query
+            System.out.printf(
+                    Locale.US,
+                    "%-8s %-6d %-10.4f %-10.4f %-10.4f %-10.4f%n",
+                    queryId,
+                    topK,
+                    precision,
+                    recall,
+                    f1,
+                    averagePrecision
+            );
+        }
+        System.out.println("----------------------------------------------------------------------------");
     }
 
-    
     public void printMap(String modelName, double map) {
-       //tampilkan nilai MAP untuk satu model ke terminal
-       System.out.println(String.format(Locale.US, "MAP %s : %.6f", modelName, map));
+        //print nilai MAP dari model yang dipakai
+        System.out.printf(Locale.US, "MAP %-14s : %.4f%n", modelName, map);
     }
 }
