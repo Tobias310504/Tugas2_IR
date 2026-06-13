@@ -7,55 +7,71 @@ public class ConsoleInput {
     private Scanner scanner;
 
     public ConsoleInput() {
-        //buat Scanner untuk membaca input dari terminal
         this.scanner = new Scanner(System.in);
     }
 
+    public String readRunMode() {
+        //pilihan mode menjalankan program
+        System.out.println("Pilih mode program:");
+        //pilihan 1 untuk input query manual dari terminal
+        System.out.println("1. Input query sendiri");
+        //pilihan 2 untuk membaca query dari file txt
+        System.out.println("2. Input query dari file queries.txt");
+        //baca pilihan user
+        System.out.print("Pilihan: ");
+        String pilihan = scanner.nextLine();
+        //trim pilihan user
+        pilihan = pilihan.trim();
+        //kembalikan pilihan user
+        return pilihan;
+    }
+
     public String readQuery() {
-        //tampilkan pesan untuk memasukkan query
-        System.out.print("Enter query: ");
-        //baca query dari terminal
+        System.out.println("Masukan kata yang ingin dicari");
+        //baca query dari terminal menggunakan scanner
         String query = scanner.nextLine();
-        //return query yang sudah di trim
-        return query.trim();
+        //trim query untuk menghilangkan spasi
+        query = query.trim();
+        //return query 
+        return query;
     }
 
     public String readModelChoice() {
-        //tampilkan pilihan model
-        System.out.println("Choose retrieval model:");
-        //pilihan pertama adalah BIM
+        //pilihan model retrieval
+        System.out.println("Pilih model retrieval (Menulis angka pilihan) :");
+        //pilihan 1 untuk BIM
         System.out.println("1. BIM");
-        //pilihan kedua adalah Two-Poisson
+        //pilihan 2 untuk Two-poisson
         System.out.println("2. Two-Poisson");
-        //pilihan ketiga adalah BM25
+        //pilihan 3 untuk BM25
         System.out.println("3. BM25");
-        //pilihan keempat adalah BM10
+        //pilihan 4 untuk BM10
         System.out.println("4. BM10");
-        //minta user memilih model
-        System.out.print("Choice: ");
-        //baca pilihan user
-        String choice = scanner.nextLine();
-        //return pilihan yang sudah di trim
-        return choice.trim();
+        //baca plihan user
+        System.out.print("Pilihan: ");
+        String pilihan = scanner.nextLine();
+        //trim pilihan user
+        pilihan = pilihan.trim();
+        //kembalikan pilihan user
+        return pilihan;
     }
 
     public int readTopK() {
         //tampilkan pesan untuk memasukkan topK
-        System.out.print("Top K: ");
-        //baca input user
+        System.out.println("TopK: ");
+        //baca input topK 
         String input = scanner.nextLine();
         try {
             //ubah input dari String menjadi int
-            int topK = Integer.parseInt(input.trim());
-            //kalau topK valid maka return topK
-            if (topK > 0) {
+            int topK = Integer.parseInt(input);
+            //kalau input valid dan lebih besar dari 0 maka return nilai tersebut
+            if(topK > 0){
                 return topK;
             }
         } catch (NumberFormatException e) {
-            //kalau input bukan angka, gunakan default
-            System.out.println("Menggunakan K = 10 default....");
+            System.out.println("input topK tidak valid, memakai default 10");
         }
-        //return default topK
+        //kalau input tidak valid maka gunakan nilai default = 10
         return 10;
     }
 }

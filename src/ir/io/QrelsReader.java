@@ -10,54 +10,38 @@ import java.util.List;
 public class QrelsReader {
 
     public List<RelevanceJudgment> readQrels(String filePath) {
-        //inisialisasikan list untuk menyimpan relevance judgment
-        List<RelevanceJudgment> judgments = new ArrayList<RelevanceJudgment>();
-        //buka file qrels.txt
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            //siapkan variable untuk membaca file baris per baris
+        //inisialisasikan arraylist untuk menyimpan seluruh dokumen
+        List<RelevanceJudgment> eval  = new ArrayList<RelevanceJudgment>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))){
             String line;
-            //baca file sampai tidak ada baris lagi
-            while ((line = reader.readLine()) != null) {
-                //trim dulu barisnya
+            //scan line per line sampai line tidak ada lgi
+            while ((line = reader.readLine()) != null){
                 line = line.trim();
                 //kalau baris kosong di skip
-                if (line.isEmpty()) {
+                if(line.isEmpty()){
                     continue;
                 }
-                //format qrels adalah queryId|documentId|relevance
+                //format relevance judgment adalah 1 baris 1 relevance judgment (query|documentId|relevansi nya)
                 String[] parts = line.split("\\|", 3);
-                //kalau format qrels tidak sesuai maka skip baris tersebut
-                if (parts.length < 3) {
+                //kalau format relevance judgment tidak sesuai maka skip baris tersebut
+                if(parts.length < 3){
                     continue;
                 }
-                //ambil query id dari parts index 0
-                String queryId = parts[0].trim();
-                //ambil document id dari parts index 1
+                //ambil query nya yaitu di parts index 0
+                String query = parts[0].trim();
+                //ambil dokumen id nya  di parts index 1
                 String documentId = parts[1].trim();
-                //ambil relevance dari parts index 2
+                //ambil text yang relevan di parts index 2
                 String relevanceText = parts[2].trim();
-
-                //kalau ada data yang kosong maka skip baris tersebut
-                if (queryId.isEmpty() || documentId.isEmpty() || relevanceText.isEmpty()) {
-                    continue;
-                }
-                try {
-                    //ubah relevance dari string menjadi integer
-                    int relevance = Integer.parseInt(relevanceText);
-                    //buat object RelevanceJudgment untuk menyimpan data qrels
-                    RelevanceJudgment judgment = new RelevanceJudgment(queryId, documentId, relevance);
-                    //masukkan judgment ke list
-                    judgments.add(judgment);
-                } catch (NumberFormatException e) {
-                    //kalau relevance bukan angka maka skip baris tersebut
-                    continue;
-                }
+                //parse relevanceText menjadi integer
+                int relevance = Integer.parseInt(relevanceText);
+                //inisialisasi relevance judgment untuk menyimpan query, id dokumen, dan relevansinya
+                RelevanceJudgment hasil = new RelevanceJudgment(query, documentId, relevance);
+                eval.add(hasil);
             }
-        } catch (IOException e) {
-            //tampilkan error kalau file gagal dibaca
-            System.out.println("Error reading qrels file: " + e.getMessage());
+        }catch (IOException e){
+            System.out.println("Error opening file: "+ e.getMessage());
         }
-        //return semua judgment yang sudah dibaca
-        return judgments;
+        return eval;
     }
 }
