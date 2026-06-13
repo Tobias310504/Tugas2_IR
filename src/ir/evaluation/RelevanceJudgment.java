@@ -5,35 +5,35 @@ public class RelevanceJudgment {
     private String queryId;
     private String documentId;
     private int relevance;
-
+    //konsturktor
     public RelevanceJudgment(String queryId, String documentId, int relevance) {
-        //simpan query id dari qrels
+        //simpan queryId ke atribut queryId
         this.queryId = queryId;
-
-        //simpan document id dari qrels
+        //simpan documentId ke atribut documentId
         this.documentId = documentId;
-
-        //simpan nilai relevance
+        //simpan relevance ke atribut relevance
         this.relevance = relevance;
     }
 
     public String getQueryId() {
-        //method untuk mengembalikan query id
         return queryId;
     }
 
     public String getDocumentId() {
-        //method untuk mengembalikan document id
         return documentId;
     }
 
     public int getRelevance() {
-        //method untuk mengembalikan nilai relevance
         return relevance;
     }
 
     public boolean isRelevant() {
-        //dokumen dianggap relevant jika nilainya lebih besar dari 0
-        return relevance > 0;
+        //cek apakah relevance lebih besar dari 0
+        if(relevance > 0){
+            //kalau dokumen relevan kembalikan true
+            return true;
+        }
+        //kalau tidak relevan kembalikan false
+        return false;
     }
 }

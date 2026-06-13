@@ -1,53 +1,25 @@
 package ir.io;
 
 import ir.query.Query;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class QueryReader {
 
     public List<Query> readQueries(String filePath) {
-        //inisialisasikan list untuk menyimpan semua query
-        List<Query> queries = new ArrayList<Query>();
-        //buka file queries.txt
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            //siapkan variable untuk membaca file baris per baris
-            String line;
-            //baca file sampai tidak ada baris lagi
-            while ((line = reader.readLine()) != null) {
-                //trim dulu barisnya
-                line = line.trim();
-                //kalau baris kosong di skip
-                if (line.isEmpty()) {
-                    continue;
-                }
-                //format query adalah queryId|queryText
-                String[] parts = line.split("\\|", 2);
-                //kalau format query tidak sesuai maka skip baris tersebut
-                if (parts.length < 2) {
-                    continue;
-                }
-                //ambil query id dari parts index 0
-                String queryId = parts[0].trim();
-                //ambil query text dari parts index 1
-                String queryText = parts[1].trim();
-                //kalau queryId atau queryText kosong maka skip
-                if (queryId.isEmpty() || queryText.isEmpty()) {
-                    continue;
-                }
-                //buat object Query untuk menyimpan query id dan text
-                Query query = new Query(queryId, queryText);
-                //masukkan query ke list
-                queries.add(query);
-            }
-        } catch (IOException e) {
-            //tampilkan error kalau file gagal dibaca
-            System.out.println("Error reading queries file: " + e.getMessage());
-        }
-        //return semua query yang sudah dibaca
-        return queries;
+        //TODO buat list untuk menyimpan semua query
+        //TODO buka file queries.txt berdasarkan filePath
+        //TODO baca file baris per baris
+        //TODO trim setiap baris supaya spasi depan belakang hilang
+        //TODO kalau baris kosong maka lanjut ke baris berikutnya
+        //TODO pecah baris dengan tanda | karena formatnya queryId|queryText
+        //TODO kalau format tidak sesuai maka baris tersebut dilewati
+        //TODO ambil queryId dari bagian pertama
+        //TODO ambil queryText dari bagian kedua
+        //TODO kalau queryId atau queryText kosong maka baris tersebut dilewati
+        //TODO buat object Query dari queryId dan queryText
+        //TODO masukkan object Query ke list
+        //TODO tangani error kalau file gagal dibaca
+        //TODO return list query yang sudah berhasil dibaca
+        return null;
     }
 }

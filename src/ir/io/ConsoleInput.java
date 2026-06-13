@@ -7,55 +7,35 @@ public class ConsoleInput {
     private Scanner scanner;
 
     public ConsoleInput() {
-        //buat Scanner untuk membaca input dari terminal
-        this.scanner = new Scanner(System.in);
+        //TODO buat Scanner untuk membaca input dari terminal
     }
 
     public String readQuery() {
-        //tampilkan pesan untuk memasukkan query
-        System.out.print("Enter query: ");
-        //baca query dari terminal
-        String query = scanner.nextLine();
-        //return query yang sudah di trim
-        return query.trim();
+        //TODO tampilkan pesan untuk memasukkan query
+        //TODO baca query dari terminal menggunakan scanner
+        //TODO trim query supaya spasi depan belakang hilang
+        //TODO return query yang sudah dibaca
+        return null;
     }
 
     public String readModelChoice() {
-        //tampilkan pilihan model
-        System.out.println("Choose retrieval model:");
-        //pilihan pertama adalah BIM
-        System.out.println("1. BIM");
-        //pilihan kedua adalah Two-Poisson
-        System.out.println("2. Two-Poisson");
-        //pilihan ketiga adalah BM25
-        System.out.println("3. BM25");
-        //pilihan keempat adalah BM10
-        System.out.println("4. BM10");
-        //minta user memilih model
-        System.out.print("Choice: ");
-        //baca pilihan user
-        String choice = scanner.nextLine();
-        //return pilihan yang sudah di trim
-        return choice.trim();
+        //TODO tampilkan pilihan model retrieval
+        //TODO tampilkan pilihan 1 untuk BIM
+        //TODO tampilkan pilihan 2 untuk Two-Poisson
+        //TODO tampilkan pilihan 3 untuk BM25
+        //TODO tampilkan pilihan 4 untuk BM10
+        //TODO baca pilihan user dari terminal
+        //TODO trim pilihan user
+        //TODO return pilihan user
+        return null;
     }
 
     public int readTopK() {
-        //tampilkan pesan untuk memasukkan topK
-        System.out.print("Top K: ");
-        //baca input user
-        String input = scanner.nextLine();
-        try {
-            //ubah input dari String menjadi int
-            int topK = Integer.parseInt(input.trim());
-            //kalau topK valid maka return topK
-            if (topK > 0) {
-                return topK;
-            }
-        } catch (NumberFormatException e) {
-            //kalau input bukan angka, gunakan default
-            System.out.println("Menggunakan K = 10 default....");
-        }
-        //return default topK
-        return 10;
+        //TODO tampilkan pesan untuk memasukkan topK
+        //TODO baca input topK dari terminal
+        //TODO ubah input dari String menjadi int
+        //TODO kalau input valid dan lebih besar dari 0 maka return nilai tersebut
+        //TODO kalau input tidak valid maka gunakan nilai default
+        return 0;
     }
 }
