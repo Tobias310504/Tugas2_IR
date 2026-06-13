@@ -221,4 +221,55 @@ public class Evaluator {
         //return jumlah dokumen relevant yang berhasil di retrieve
         return count;
     }
+
+    // public double computeElevenPointAverage(String queryId, List<SearchResult> rankedResults, List<RelevanceJudgment> judgments) {
+    //     //Ambil dokumen relevant untuk query ini
+    //     Set<String> relevantDocuments = getRelevantDocuments(queryId, judgments);
+
+    //     //Kalau tidak ada dokumen relevant, nilai 0
+    //     if (relevantDocuments.isEmpty() || rankedResults == null || rankedResults.isEmpty()) {
+    //         return 0.0;
+    //     }
+
+    //     //Titik recall: 0.0, 0.1, 0.2, ..., 1.0
+    //     double[] recallLevels = {0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0};
+
+    //     //Menyimpan precision maksimum untuk setiap recall level
+    //     double[] maxPrecisionAtRecall = new double[recallLevels.length];
+
+    //     int relevantSeen = 0;
+
+    //     //Loop ranking dokumen
+    //     for (int i = 0; i < rankedResults.size(); i++) {
+    //         SearchResult result = rankedResults.get(i);
+
+    //         //Kalau dokumen pada posisi ini relevant
+    //         if (relevantDocuments.contains(result.getDocumentId())) {
+    //             relevantSeen++;
+
+    //             int rank = i + 1;
+
+    //             //Recall pada posisi ini
+    //             double recall = (double) relevantSeen / relevantDocuments.size();
+
+    //             //Precision pada posisi ini
+    //             double precision = (double) relevantSeen / rank;
+
+    //             //Update precision maksimum untuk setiap recall level yang terpenuhi
+    //             for (int j = 0; j < recallLevels.length; j++) {
+    //                 if (recall >= recallLevels[j] && precision > maxPrecisionAtRecall[j]) {
+    //                     maxPrecisionAtRecall[j] = precision;
+    //                 }
+    //             }
+    //         }
+    //     }
+
+    //     //Rata-rata dari 11 titik recall
+    //     double total = 0.0;
+    //     for (int i = 0; i < maxPrecisionAtRecall.length; i++) {
+    //         total += maxPrecisionAtRecall[i];
+    //     }
+
+    //     return total / 11.0;
+    // }
 }
