@@ -58,7 +58,7 @@ public class ConsoleInput {
 
     public int readTopK() {
         //tampilkan pesan untuk memasukkan topK
-        System.out.print("TopK: ");
+        System.out.print("TopK (kosongkan untuk memakai default 200): ");
         //baca input topK 
         String input = scanner.nextLine();
         try {
@@ -69,7 +69,7 @@ public class ConsoleInput {
                 return topK;
             }
         } catch (NumberFormatException e) {
-            System.out.println("input topK tidak valid, memakai default 10");
+            System.out.println("input topK tidak valid, memakai default 200");
         }
         //kalau input tidak valid maka gunakan nilai default = 200
         return 200;
