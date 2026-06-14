@@ -97,4 +97,20 @@ public class ConsoleInput {
         //kalau input tidak valid maka gunakan nilai default
         return defaultValue;
     }
+
+    public String readEvaluationMenuChoice() {
+        //pilihan setelah evaluasi selesai
+        System.out.println("Pilih menu selanjutnya:");
+        //pilihan 1 untuk mencoba evaluasi model lain
+        System.out.println("1. Evaluasi model lain");
+        //pilihan 2 untuk mengakhiri program
+        System.out.println("2. Selesai");
+        //baca pilihan user
+        System.out.print("Pilihan: ");
+        String pilihan = scanner.nextLine();
+        //trim pilihan user
+        pilihan = pilihan.trim();
+        //kembalikan pilihan user
+        return pilihan;
+    }
 }
