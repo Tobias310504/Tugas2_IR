@@ -23,8 +23,10 @@ public class Evaluator {
         double f1 = computeF1(precision, recall);
         //hitung average precision untuk query ini
         double avgPrecision = computeAveragePrecision(rankedResults, relevantDocuments, limit);
+        //hitung 11-point average precision untuk query ini
+        double elevenPointAverage = computeElevenPointAverage(queryId, rankedResults, judgments);
         //buat object EvaluationResult dari semua nilai evaluasi
-        EvaluationResult hasil = new EvaluationResult(modelName, queryId, limit, precision, recall, f1, avgPrecision);
+        EvaluationResult hasil = new EvaluationResult(modelName, queryId, limit, precision, recall, f1, avgPrecision, elevenPointAverage);
         //kembalikan object EvaluationResult
         return hasil;
     }

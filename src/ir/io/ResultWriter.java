@@ -43,9 +43,9 @@ public class ResultWriter {
         }
         System.out.println();
         System.out.println("===== " + results.get(0).getModelName() + " Evaluation =====");
-        System.out.println("----------------------------------------------------------------------------");
-        System.out.printf("%-8s %-6s %-10s %-10s %-10s %-10s%n", "Query", "K", "P@K", "R@K", "F1", "AP");
-        System.out.println("----------------------------------------------------------------------------");
+        System.out.println("----------------------------------------------------------------------------------------");
+        System.out.printf("%-8s %-6s %-10s %-10s %-10s %-10s %-10s%n", "Query", "K", "P@K", "R@K", "F1", "AP", "11-Point");
+        System.out.println("----------------------------------------------------------------------------------------");
         //loop semua EvaluationResult
         for(EvaluationResult res : results){
             //ambil id query
@@ -60,19 +60,22 @@ public class ResultWriter {
             double f1 = res.getF1AtK();
             //ambil average precision
             double averagePrecision = res.getAveragePrecision();
+            //ambil 11-point average precision
+            double elevenPointAverage = res.getElevenPointAverage();
             //print hasil evaluasi per query
             System.out.printf(
                     Locale.US,
-                    "%-8s %-6d %-10.4f %-10.4f %-10.4f %-10.4f%n",
+                    "%-8s %-6d %-10.4f %-10.4f %-10.4f %-10.4f %-10.4f%n",
                     queryId,
                     topK,
                     precision,
                     recall,
                     f1,
-                    averagePrecision
+                    averagePrecision,
+                    elevenPointAverage
             );
         }
-        System.out.println("----------------------------------------------------------------------------");
+        System.out.println("----------------------------------------------------------------------------------------");
     }
 
     public void printMap(String modelName, double map) {

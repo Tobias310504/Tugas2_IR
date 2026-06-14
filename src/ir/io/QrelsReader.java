@@ -33,11 +33,16 @@ public class QrelsReader {
                 String documentId = parts[1].trim();
                 //ambil text yang relevan di parts index 2
                 String relevanceText = parts[2].trim();
-                //parse relevanceText menjadi integer
-                int relevance = Integer.parseInt(relevanceText);
-                //inisialisasi relevance judgment untuk menyimpan query, id dokumen, dan relevansinya
-                RelevanceJudgment hasil = new RelevanceJudgment(query, documentId, relevance);
-                eval.add(hasil);
+                try {
+                    //parse relevanceText menjadi integer
+                    int relevance = Integer.parseInt(relevanceText);
+                    //inisialisasi relevance judgment untuk menyimpan query, id dokumen, dan relevansinya
+                    RelevanceJudgment hasil = new RelevanceJudgment(query, documentId, relevance);
+                    eval.add(hasil);
+                } catch (NumberFormatException e) {
+                    //kalau nilai relevance tidak valid maka skip baris tersebut
+                    continue;
+                }
             }
         }catch (IOException e){
             System.out.println("Error opening file: "+ e.getMessage());
