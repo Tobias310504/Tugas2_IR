@@ -22,6 +22,14 @@ public class BM10Model implements RetrievalModel {
         this.k1 = 1.5;
     }
 
+    public BM10Model(TextPreprocessor preprocessor, double k1) {
+        //Menyimpan TextPreprocessor
+        this.preprocessor = preprocessor;
+
+        //Parameter BM10 dari input user
+        this.k1 = k1;
+    }
+
     @Override
     public String getModelName() {
         return "BM10";
