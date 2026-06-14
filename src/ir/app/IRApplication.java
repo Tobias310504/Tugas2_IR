@@ -77,7 +77,7 @@ public class IRApplication {
         //ubah pilihan user menjadi ModelType
         ModelType modelType = parseModelChoice(modelChoice);
         //buat model retrieval dari factory
-        RetrievalModel model = models.create(modelType, preprocessor);
+        RetrievalModel model = createModel(models, modelType, preprocessor, input);
         //buat search engine memakai index
         SearchEngine engine = new SearchEngine(index);
         //jalankan SearchEngine.search()
@@ -118,7 +118,7 @@ public class IRApplication {
         String modelName = modelType.toString();
         try {
             //buat model sesuai dengan pilihan user
-            RetrievalModel model = models.create(modelType, preprocessor);
+            RetrievalModel model = createModel(models, modelType, preprocessor, input);
             //ambil nama model dari objek model
             modelName = model.getModelName();
             //loop sebanyak query yang ada
@@ -144,6 +144,27 @@ public class IRApplication {
 
     private ModelType[] getAllModelTypes(){
         return new ModelType[]{ModelType.BIM, ModelType.TWO_POISSON, ModelType.BM25, ModelType.BM10};
+    }
+
+    private RetrievalModel createModel(RetrievalModelFactory models, ModelType modelType, TextPreprocessor preprocessor, ConsoleInput input){
+        //kalau model yang dipilih adalah Two-Poisson maka minta parameter k
+        if(modelType == ModelType.TWO_POISSON){
+            //baca nilai k dari user, jika kosong maka pakai default 1.0
+            double k = input.readDoubleParameter("k Two-Poisson", 1.0);
+            //buat model Two-Poisson dengan parameter dari user
+            return models.createTwoPoisson(preprocessor, k);
+        }
+        //kalau model yang dipilih adalah BM25 maka minta parameter k1 dan b
+        if(modelType == ModelType.BM25){
+            //baca nilai k1 dari user, jika kosong maka pakai default 1.5
+            double k1 = input.readDoubleParameter("k1 BM25", 1.5);
+            //baca nilai b dari user, jika kosong maka pakai default 0.75
+            double b = input.readDoubleParameter("b BM25", 0.75);
+            //buat model BM25 dengan parameter dari user
+            return models.createBM25(preprocessor, k1, b);
+        }
+        //kalau bukan BM25 maka buat model seperti biasa
+        return models.create(modelType, preprocessor);
     }
 
     private ModelType parseModelChoice(String modelChoice){

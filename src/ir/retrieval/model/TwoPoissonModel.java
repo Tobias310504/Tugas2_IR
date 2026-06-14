@@ -17,8 +17,16 @@ public class TwoPoissonModel implements RetrievalModel {
         //simpan TextPreprocessor
         this.preprocessor = preprocessor;
         //set nilai k
-        this.k = 1.5;
+        this.k = 1.0;
     }
+
+    public TwoPoissonModel(TextPreprocessor preprocessor, double k) {
+        //simpan TextPreprocessor
+        this.preprocessor = preprocessor;
+        //simpan nilai k dari input user
+        this.k = k;
+    }
+
     //method untuk mengembalikan nama model
     @Override
     public String getModelName() {

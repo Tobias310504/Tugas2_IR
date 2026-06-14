@@ -13,15 +13,17 @@ public class BM25Model implements RetrievalModel {
     private TextPreprocessor preprocessor;
     private double k1;
     private double b;
-
+    //konstruktor default
     public BM25Model(TextPreprocessor preprocessor) {
-        //simpan TextPreprocessor
         this.preprocessor = preprocessor;
-        // Set parameter BM25:
-        // k1 = 1.5
         this.k1 = 1.5;
-        // b  = 0.75
         this.b = 0.75;
+    }
+    //konstruktor kalau ingin mengkonfigurasi 
+    public BM25Model(TextPreprocessor preprocessor, double k1, double b){
+        this.preprocessor = preprocessor;
+        this.k1 = k1;
+        this.b = b;
     }
 
     @Override

@@ -28,4 +28,14 @@ public class RetrievalModelFactory {
         //jika tidak sesuai, lempar error atau return default model
         throw new IllegalArgumentException("Unknown retrieval model: " + modelType);
     }
+
+    public RetrievalModel createBM25(TextPreprocessor preprocessor, double k1, double b) {
+        //buat BM25Model dengan parameter dari user
+        return new BM25Model(preprocessor, k1, b);
+    }
+
+    public RetrievalModel createTwoPoisson(TextPreprocessor preprocessor, double k) {
+        //buat TwoPoissonModel dengan parameter dari user
+        return new TwoPoissonModel(preprocessor, k);
+    }
 }

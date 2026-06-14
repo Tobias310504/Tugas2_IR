@@ -74,4 +74,27 @@ public class ConsoleInput {
         //kalau input tidak valid maka gunakan nilai default = 10
         return 10;
     }
+
+    public double readDoubleParameter(String parameterName, double defaultValue) {
+        //tampilkan pesan untuk memasukkan parameter
+        System.out.print(parameterName + " (kosongkan untuk default " + defaultValue + "): ");
+        //baca input parameter
+        String input = scanner.nextLine();
+        //trim input parameter
+        input = input.trim();
+        //kalau input kosong maka pakai nilai default
+        if(input.isEmpty()){
+            return defaultValue;
+        }
+        try {
+            //ubah input dari String menjadi double
+            double value = Double.parseDouble(input);
+            //kalau input valid maka return nilai tersebut
+            return value;
+        } catch (NumberFormatException e) {
+            System.out.println("input " + parameterName + " tidak valid, memakai default " + defaultValue);
+        }
+        //kalau input tidak valid maka gunakan nilai default
+        return defaultValue;
+    }
 }
