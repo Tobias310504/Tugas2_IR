@@ -126,7 +126,7 @@ public class IRApplication {
                 //loop semua query dari queries.txt
                 for(Query query : queries){
                     //jalankan search untuk query saat ini
-                    List<SearchResult> rankedResults = searches.search(query.getText(), model, topK);
+                    List<SearchResult> rankedResults = searches.search(query.getText(), model, 0);
                     //hitung evaluasi query saat ini
                     EvaluationResult res = eval.evaluate(model.getModelName(), query.getId(), rankedResults, judgments, topK);
                     //masukan hasil evaluasi ke list
@@ -158,16 +158,16 @@ public class IRApplication {
         //kalau model yang dipilih adalah Two-Poisson maka minta parameter k
         if(modelType == ModelType.TWO_POISSON){
             //baca nilai k dari user, jika kosong maka pakai default 1.0
-            double k = input.readDoubleParameter("k Two-Poisson", 1.0);
+            double k = input.readPositiveDoubleParameter("k Two-Poisson", 1.0);
             //buat model Two-Poisson dengan parameter dari user
             return models.createTwoPoisson(preprocessor, k);
         }
         //kalau model yang dipilih adalah BM25 maka minta parameter k1 dan b
         if(modelType == ModelType.BM25){
             //baca nilai k1 dari user, jika kosong maka pakai default 1.5
-            double k1 = input.readDoubleParameter("k1 BM25", 1.5);
+            double k1 = input.readPositiveDoubleParameter("k1 BM25", 1.5);
             //baca nilai b dari user, jika kosong maka pakai default 0.75
-            double b = input.readDoubleParameter("b BM25", 0.75);
+            double b = input.readRangeDoubleParameter("b BM25", 0.75, 0.0, 1.0);
             //buat model BM25 dengan parameter dari user
             return models.createBM25(preprocessor, k1, b);
         }

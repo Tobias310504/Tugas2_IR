@@ -58,7 +58,7 @@ public class ConsoleInput {
 
     public int readTopK() {
         //tampilkan pesan untuk memasukkan topK
-        System.out.println("TopK: ");
+        System.out.print("TopK: ");
         //baca input topK 
         String input = scanner.nextLine();
         try {
@@ -71,8 +71,8 @@ public class ConsoleInput {
         } catch (NumberFormatException e) {
             System.out.println("input topK tidak valid, memakai default 10");
         }
-        //kalau input tidak valid maka gunakan nilai default = 10
-        return 10;
+        //kalau input tidak valid maka gunakan nilai default = 200
+        return 200;
     }
 
     public double readDoubleParameter(String parameterName, double defaultValue) {
@@ -95,6 +95,60 @@ public class ConsoleInput {
             System.out.println("input " + parameterName + " tidak valid, memakai default " + defaultValue);
         }
         //kalau input tidak valid maka gunakan nilai default
+        return defaultValue;
+    }
+
+    public double readPositiveDoubleParameter(String parameterName, double defaultValue) {
+        //tampilkan pesan untuk memasukkan parameter positif
+        System.out.print(parameterName + " (kosongkan untuk default " + defaultValue + "): ");
+        //baca input parameter
+        String input = scanner.nextLine();
+        //trim input parameter
+        input = input.trim();
+        //kalau input kosong maka pakai nilai default
+        if(input.isEmpty()){
+            return defaultValue;
+        }
+        try {
+            //ubah input dari String menjadi double
+            double value = Double.parseDouble(input);
+            //kalau nilai lebih besar dari 0 maka return nilai tersebut
+            if(value > 0){
+                return value;
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("input " + parameterName + " tidak valid, memakai default " + defaultValue);
+            return defaultValue;
+        }
+        //kalau nilai tidak lebih besar dari 0 maka gunakan nilai default
+        System.out.println("input " + parameterName + " harus lebih besar dari 0, memakai default " + defaultValue);
+        return defaultValue;
+    }
+
+    public double readRangeDoubleParameter(String parameterName, double defaultValue, double minValue, double maxValue) {
+        //tampilkan pesan untuk memasukkan parameter dalam range tertentu
+        System.out.print(parameterName + " (kosongkan untuk default " + defaultValue + "): ");
+        //baca input parameter
+        String input = scanner.nextLine();
+        //trim input parameter
+        input = input.trim();
+        //kalau input kosong maka pakai nilai default
+        if(input.isEmpty()){
+            return defaultValue;
+        }
+        try {
+            //ubah input dari String menjadi double
+            double value = Double.parseDouble(input);
+            //kalau nilai ada di dalam range maka return nilai tersebut
+            if(value >= minValue && value <= maxValue){
+                return value;
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("input " + parameterName + " tidak valid, memakai default " + defaultValue);
+            return defaultValue;
+        }
+        //kalau nilai di luar range maka gunakan nilai default
+        System.out.println("input " + parameterName + " harus di antara " + minValue + " dan " + maxValue + ", memakai default " + defaultValue);
         return defaultValue;
     }
 

@@ -9,6 +9,7 @@ public class EvaluationResult {
     private double recallAtK;
     private double f1AtK;
     private double averagePrecision;
+    private double elevenPointAverage;
 
     public EvaluationResult(String modelName, String queryId, int topK, double precisionAtK, double recallAtK, double f1AtK, double averagePrecision) {
         this.modelName = modelName;
@@ -18,6 +19,18 @@ public class EvaluationResult {
         this.recallAtK = recallAtK;
         this.f1AtK = f1AtK;
         this.averagePrecision = averagePrecision;
+        this.elevenPointAverage = 0.0;
+    }
+
+    public EvaluationResult(String modelName, String queryId, int topK, double precisionAtK, double recallAtK, double f1AtK, double averagePrecision, double elevenPointAverage) {
+        this.modelName = modelName;
+        this.queryId = queryId;
+        this.topK = topK;
+        this.precisionAtK = precisionAtK;
+        this.recallAtK = recallAtK;
+        this.f1AtK = f1AtK;
+        this.averagePrecision = averagePrecision;
+        this.elevenPointAverage = elevenPointAverage;
     }
     
     public String getModelName() {
@@ -46,5 +59,9 @@ public class EvaluationResult {
 
     public double getAveragePrecision() {
         return averagePrecision;
+    }
+
+    public double getElevenPointAverage() {
+        return elevenPointAverage;
     }
 }
