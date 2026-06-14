@@ -171,6 +171,12 @@ public class IRApplication {
             //buat model BM25 dengan parameter dari user
             return models.createBM25(preprocessor, k1, b);
         }
+        if (modelType == ModelType.BM10) {
+            //baca nilai k1 dari user, jika kosong maka pakai default 1.5
+            double k1 = input.readPositiveDoubleParameter("k1 BM10", 1.5);
+            //buat model BM10 dengan parameter dari user
+            return models.createBM10(preprocessor, k1);
+        }
         //kalau bukan BM25 maka buat model seperti biasa
         return models.create(modelType, preprocessor);
     }

@@ -38,4 +38,9 @@ public class RetrievalModelFactory {
         //buat TwoPoissonModel dengan parameter dari user
         return new TwoPoissonModel(preprocessor, k);
     }
+
+    public RetrievalModel createBM10(TextPreprocessor preprocessor, double k1) {
+        //buat BM10Model dengan parameter k1 dari user
+        return new BM10Model(preprocessor, k1);
+    }
 }
