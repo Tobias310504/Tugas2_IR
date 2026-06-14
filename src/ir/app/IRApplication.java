@@ -40,12 +40,14 @@ public class IRApplication {
         }
         //kalau pilih 2 maka jalankan query dari file queries.txt
         if(mode.equals("2")){
-            runEvaluationMode(index, input);
+            //runEvaluationMode(index, input);//==========================================================
+            runEvaluationMode(index);
             return;
         }
         //kalau pilihan tidak dikenal maka default memakai file queries.txt
         System.out.println("Pilihan tidak dikenal, memakai mode file queries.txt");
-        runEvaluationMode(index, input);
+        //runEvaluationMode(index, input);//==============================================================
+        runEvaluationMode(index);
     }
     //method ini berfungsi untuk membangun index
     private InvertedIndex buildIndex() {
@@ -87,59 +89,178 @@ public class IRApplication {
         writer.printRanking(model.getModelName(), results);
     }
 
-    private void runEvaluationMode(InvertedIndex index, ConsoleInput input) {
-        //baca queries.txt menggunakan QueryReader
-        QueryReader queryReader = new QueryReader();
-        //baca qrels.txt menggunakan QrelsReader
-        List<Query> queries = queryReader.readQueries("data/queries.txt");
-        //baca qrels.txt menggunakan qrelsReader
-        QrelsReader qrels = new QrelsReader();
-        List<RelevanceJudgment> judgments = qrels.readQrels("data/qrels.txt");
-        //buat objek yang di butuhkan untuk retrieval dan evaluasi
-        //buat objek untuk textpreprocessor
-        TextPreprocessor preprocessor = new TextPreprocessor();
-        //buat objek untuk model
-        RetrievalModelFactory models = new RetrievalModelFactory();
-        //buat objek untuk search 
-        SearchEngine searches = new SearchEngine(index);
-        //buat objek untuk eval
-        Evaluator eval = new Evaluator();
-        //buat objek untuk print hasil evaluasi
-        ResultWriter hasil = new ResultWriter();
-        //minta user memilih model yang ingin dievaluasi
-        String modelChoice = input.readModelChoice();
-        //ubah pilihan user menjadi ModelType
-        ModelType modelType = parseModelChoice(modelChoice);
-        //minta user memasukkan topK untuk evaluasi
-        int topK = input.readTopK();
-        //buat list untuk menampung hasil evaluasi model
-        List<EvaluationResult> modelResults = new ArrayList<EvaluationResult>();
-        //ubah tipe data dari modelType ke string, nama model diambil dari enum
-        String modelName = modelType.toString();
-        try {
-            //buat model sesuai dengan pilihan user
-            RetrievalModel model = models.create(modelType, preprocessor);
-            //ambil nama model dari objek model
-            modelName = model.getModelName();
-            //loop sebanyak query yang ada
-            for(Query query : queries){
-                //buatlah list yang menyimpan hasil pencarian
-                List<SearchResult> rankedResults = searches.search(query.getText(), model, topK);
-                //hitung evaluasinya
-                EvaluationResult res = eval.evaluate(model.getModelName(), query.getId(), rankedResults, judgments, topK);
-                //masukan hasil evaluasi dari query ke list model
-                modelResults.add(res);
-            }
-            //print hasil evaluasinya
-            hasil.printEvaluation(modelResults);
-            //hitung nilai MAP dari semua hasil evaluasi model
-            double map = eval.computeMeanAveragePrecision(modelResults);
-            //print nilai MAP model
-            hasil.printMap(modelName, map);
-        } catch (RuntimeException e) {
-            System.out.println("Model " + modelName + " belum bisa dievaluasi");
-        }
+    // private void runEvaluationMode(InvertedIndex index, ConsoleInput input) {
+    //     //baca queries.txt menggunakan QueryReader
+    //     QueryReader queryReader = new QueryReader();
+    //     //baca qrels.txt menggunakan QrelsReader
+    //     List<Query> queries = queryReader.readQueries("data/queries.txt");
+    //     //baca qrels.txt menggunakan qrelsReader
+    //     QrelsReader qrels = new QrelsReader();
+    //     List<RelevanceJudgment> judgments = qrels.readQrels("data/qrels.txt");
+    //     //buat objek yang di butuhkan untuk retrieval dan evaluasi
+    //     //buat objek untuk textpreprocessor
+    //     TextPreprocessor preprocessor = new TextPreprocessor();
+    //     //buat objek untuk model
+    //     RetrievalModelFactory models = new RetrievalModelFactory();
+    //     //buat objek untuk search 
+    //     SearchEngine searches = new SearchEngine(index);
+    //     //buat objek untuk eval
+    //     Evaluator eval = new Evaluator();
+    //     //buat objek untuk print hasil evaluasi
+    //     ResultWriter hasil = new ResultWriter();
+    //     //minta user memilih model yang ingin dievaluasi
+    //     String modelChoice = input.readModelChoice();
+    //     //ubah pilihan user menjadi ModelType
+    //     ModelType modelType = parseModelChoice(modelChoice);
+    //     //minta user memasukkan topK untuk evaluasi
+    //     int topK = input.readTopK();
+    //     //buat list untuk menampung hasil evaluasi model
+    //     List<EvaluationResult> modelResults = new ArrayList<EvaluationResult>();
+    //     //ubah tipe data dari modelType ke string, nama model diambil dari enum
+    //     String modelName = modelType.toString();
+    //     try {
+    //         //buat model sesuai dengan pilihan user
+    //         RetrievalModel model = models.create(modelType, preprocessor);
+    //         //ambil nama model dari objek model
+    //         modelName = model.getModelName();
+    //         //loop sebanyak query yang ada
+    //         for(Query query : queries){
+    //             //buatlah list yang menyimpan hasil pencarian
+    //             List<SearchResult> rankedResults = searches.search(query.getText(), model, topK);
+    //             //hitung evaluasinya
+    //             EvaluationResult res = eval.evaluate(model.getModelName(), query.getId(), rankedResults, judgments, topK);
+    //             //masukan hasil evaluasi dari query ke list model
+    //             modelResults.add(res);
+    //         }
+    //         //print hasil evaluasinya
+    //         hasil.printEvaluation(modelResults);
+    //         //hitung nilai MAP dari semua hasil evaluasi model
+    //         double map = eval.computeMeanAveragePrecision(modelResults);
+    //         //print nilai MAP model
+    //         hasil.printMap(modelName, map);
+    //     } catch (RuntimeException e) {
+    //         System.out.println("Model " + modelName + " belum bisa dievaluasi");
+    //     }
         
+    // }
+
+    private void runEvaluationMode(InvertedIndex index) {
+        QueryReader queryReader = new QueryReader();
+        List<Query> queries = queryReader.readQueries("data/queries.txt");
+
+        QrelsReader qrelsReader = new QrelsReader();
+        List<RelevanceJudgment> judgments = qrelsReader.readQrels("data/qrels.txt");
+
+        TextPreprocessor preprocessor = new TextPreprocessor();
+        RetrievalModelFactory factory = new RetrievalModelFactory();
+        SearchEngine engine = new SearchEngine(index);
+        Evaluator evaluator = new Evaluator();
+
+        // Beberapa nilai K untuk Precision@K.
+        int[] kValues = {5, 10, 20};
+
+        ModelType[] modelTypes = getAllModelTypes();
+
+        System.out.println("===== Evaluation Summary =====");
+
+        for (ModelType modelType : modelTypes) {
+            List<EvaluationResult> modelResults = new ArrayList<EvaluationResult>();
+
+            String modelName = modelType.toString();
+
+            double totalPrecision = 0.0;
+            double totalRecall = 0.0;
+            double totalElevenPoint = 0.0;
+
+            double[] totalPrecisionAtK = new double[kValues.length];
+
+            try {
+                RetrievalModel model = factory.create(modelType, preprocessor);
+                modelName = model.getModelName();
+
+                for (Query query : queries) {
+                    // Ambil full ranking agar AP dan 11-point average lebih benar.
+                    List<SearchResult> rankedResults = engine.search(query.getText(), model, 0);
+
+                    // Evaluasi precision dan recall pada seluruh ranking.
+                    EvaluationResult fullResult = evaluator.evaluate(
+                            model.getModelName(),
+                            query.getId(),
+                            rankedResults,
+                            judgments,
+                            0
+                    );
+
+                    modelResults.add(fullResult);
+
+                    totalPrecision += fullResult.getPrecisionAtK();
+                    totalRecall += fullResult.getRecallAtK();
+
+                    // Hitung 11-point average.
+                    double elevenPointAverage = evaluator.computeElevenPointAverage(
+                            query.getId(),
+                            rankedResults,
+                            judgments
+                    );
+
+                    totalElevenPoint += elevenPointAverage;
+
+                    // Print hasil query.
+                    System.out.println(
+                            model.getModelName()
+                                    + " | " + query.getId()
+                                    + " | Precision = " + fullResult.getPrecisionAtK()
+                                    + " | Recall = " + fullResult.getRecallAtK()
+                                    + " | AP = " + fullResult.getAveragePrecision()
+                                    + " | 11-Point = " + elevenPointAverage
+                    );
+
+                    // Hitung Precision@K untuk beberapa nilai K.
+                    for (int i = 0; i < kValues.length; i++) {
+                        EvaluationResult pkResult = evaluator.evaluate(
+                                model.getModelName(),
+                                query.getId(),
+                                rankedResults,
+                                judgments,
+                                kValues[i]
+                        );
+
+                        totalPrecisionAtK[i] += pkResult.getPrecisionAtK();
+
+                        System.out.println(
+                                model.getModelName()
+                                        + " | " + query.getId()
+                                        + " | P@" + kValues[i]
+                                        + " = " + pkResult.getPrecisionAtK()
+                        );
+                    }
+                }
+            } catch (RuntimeException e) {
+                System.out.println("Model " + modelName + " belum bisa dievaluasi");
+            }
+
+            int totalQueries = queries.size();
+
+            if (totalQueries > 0) {
+                double avgPrecision = totalPrecision / totalQueries;
+                double avgRecall = totalRecall / totalQueries;
+                double map = evaluator.computeMeanAveragePrecision(modelResults);
+                double avgElevenPoint = totalElevenPoint / totalQueries;
+
+                System.out.println("----- Rata-rata Model: " + modelName + " -----");
+                System.out.println("Precision = " + avgPrecision);
+                System.out.println("Recall = " + avgRecall);
+
+                for (int i = 0; i < kValues.length; i++) {
+                    double avgPAtK = totalPrecisionAtK[i] / totalQueries;
+                    System.out.println("P@" + kValues[i] + " = " + avgPAtK);
+                }
+
+                System.out.println("MAP = " + map);
+                System.out.println("11-Point Average = " + avgElevenPoint);
+                System.out.println("--------------------------------------");
+            }
+        }
     }
 
     private ModelType[] getAllModelTypes(){
